@@ -6,8 +6,8 @@
   --hm-gold: #FFC30B;
   
   /* Page Colors */
-  --background: #FAF9F6;
-  --foreground: #1E293B;
+  --background: #FAF7F0;
+  --foreground: #1F2937;
 }
 
 @theme inline {
@@ -23,6 +23,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.7;
 }
 
 /* His Minute Custom Styles */
@@ -33,30 +34,60 @@ body {
 .prose-his-minute h1 {
   @apply text-4xl md:text-5xl font-bold tracking-tight mb-6;
   color: var(--hm-blue);
+  line-height: 1.15;
 }
 
 .prose-his-minute h2 {
   @apply text-3xl md:text-4xl font-semibold tracking-tight mb-4;
   color: var(--hm-blue);
+  line-height: 1.2;
 }
 
 .prose-his-minute p {
-  @apply text-lg md:text-xl leading-relaxed mb-6;
+  @apply text-lg md:text-xl mb-6;
+  line-height: 1.75;
 }
 
-/* Gold underline accent utility */
-.accent-underline {
+/* Subtle gold underline on hover for links */
+.link-hover-gold {
   position: relative;
-  display: inline-block;
+  transition: color 0.2s ease;
 }
 
-.accent-underline::after {
+.link-hover-gold::after {
   content: '';
   position: absolute;
   left: 0;
   bottom: -2px;
-  width: 100%;
-  height: 3px;
+  width: 0;
+  height: 2px;
   background: var(--hm-gold);
-  border-radius: 2px;
+  border-radius: 1px;
+  transition: width 0.2s ease;
+}
+
+.link-hover-gold:hover::after {
+  width: 100%;
+}
+
+/* Button with gold underline accent on hover */
+.btn-gold-accent {
+  position: relative;
+}
+
+.btn-gold-accent::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--hm-gold);
+  border-radius: 1px;
+  transition: width 0.2s ease;
+}
+
+.btn-gold-accent:hover::after {
+  width: 40%;
 }

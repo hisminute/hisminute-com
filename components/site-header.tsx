@@ -15,12 +15,12 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#0B1B3A] shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-[#0B1B3A]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link 
             href="/" 
-            className="text-xl font-bold tracking-tight text-white hover:text-[#FFC30B] transition-colors"
+            className="text-xl font-bold tracking-tight text-white/90 hover:text-white transition-colors"
           >
             His Minute
           </Link>
@@ -33,7 +33,7 @@ export function SiteHeader() {
                 className={`relative text-sm font-medium transition-colors py-1 ${
                   pathname === link.href
                     ? "text-white"
-                    : "text-white/70 hover:text-white"
+                    : "text-white/60 hover:text-white/90"
                 }`}
               >
                 {link.label}
@@ -45,7 +45,7 @@ export function SiteHeader() {
           </nav>
 
           {/* TODO: Add mobile menu toggle */}
-          <button className="md:hidden text-sm font-medium text-white">
+          <button className="md:hidden text-sm font-medium text-white/90 hover:text-white transition-colors">
             Menu
           </button>
         </div>

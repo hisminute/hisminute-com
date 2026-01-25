@@ -13,28 +13,28 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-20 md:py-32">
+      <section className="py-20 md:py-28 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-[#0B1B3A]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-[#0B1B3A] leading-[1.1]">
               Take a Minute with God
             </h1>
-            <p className="text-lg md:text-xl text-[#1E293B]/80 mb-4 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-[#1F2937]/75 mb-4 max-w-2xl mx-auto leading-relaxed">
               A simple daily devotional to help you pause, reflect, and grow closer to Jesus—one minute at a time.
             </p>
-            <p className="text-base md:text-lg font-medium text-[#0B1B3A]/70 mb-10 italic">
+            <p className="text-base md:text-lg font-medium text-[#0B1B3A]/60 mb-12 italic">
               One verse. One minute. Jesus changes everything.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/start-here"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg bg-[#0B1B3A] text-white hover:bg-[#0B1B3A]/90 hover:shadow-lg transition-all border-2 border-[#0B1B3A] hover:border-[#FFC30B]"
+                className="btn-gold-accent inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl bg-[#0B1B3A] text-white hover:bg-[#0B1B3A]/95 hover:shadow-md transition-all"
               >
                 Get Started
               </a>
               <a
                 href="/archive"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium rounded-lg bg-transparent text-[#0B1B3A] border-2 border-[#0B1B3A] hover:bg-[#0B1B3A] hover:text-white transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl bg-transparent text-[#0B1B3A] border border-[#0B1B3A]/20 hover:border-[#0B1B3A]/40 hover:bg-[#0B1B3A]/5 transition-all"
               >
                 Browse Archive
               </a>
