@@ -15,31 +15,37 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-[#0B1B3A] shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight">
+          <Link 
+            href="/" 
+            className="text-xl font-bold tracking-tight text-white hover:text-[#FFC30B] transition-colors"
+          >
             His Minute
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-foreground/80 ${
+                className={`relative text-sm font-medium transition-colors py-1 ${
                   pathname === link.href
-                    ? "text-foreground"
-                    : "text-foreground/60"
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.label}
+                {pathname === link.href && (
+                  <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#FFC30B] rounded-full" />
+                )}
               </Link>
             ))}
           </nav>
 
           {/* TODO: Add mobile menu toggle */}
-          <button className="md:hidden text-sm font-medium">
+          <button className="md:hidden text-sm font-medium text-white">
             Menu
           </button>
         </div>
