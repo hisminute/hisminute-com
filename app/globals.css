@@ -1,27 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  /* His Minute Brand Colors */
-  --hm-blue: #0B1B3A;
-  --hm-gold: #FFC30B;
-  
-  /* Page Colors */
-  --background: #FAF7F0;
-  --foreground: #1F2937;
+  /* His Minute Dark Theme Palette (LOCKED) */
+  --bg: #070B16;
+  --surface: #0B1020;
+  --surface-elevated: #0E1630;
+  --border: #1D2A4A;
+  --text: #F5F7FF;
+  --text2: #B8C2E0;
+  --muted: #7E8BB3;
+  --brand-blue: #0B1B3A;
+  --brand-gold: #FFC30B;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-hm-blue: var(--hm-blue);
-  --color-hm-gold: var(--hm-gold);
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text2: var(--text2);
+  --color-muted: var(--muted);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-gold: var(--brand-gold);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-sans), system-ui, sans-serif;
   line-height: 1.7;
 }
@@ -33,25 +42,31 @@ body {
 
 .prose-his-minute h1 {
   @apply text-4xl md:text-5xl font-bold tracking-tight mb-6;
-  color: var(--hm-blue);
+  color: var(--text);
   line-height: 1.15;
 }
 
 .prose-his-minute h2 {
   @apply text-3xl md:text-4xl font-semibold tracking-tight mb-4;
-  color: var(--hm-blue);
+  color: var(--text);
   line-height: 1.2;
 }
 
 .prose-his-minute p {
   @apply text-lg md:text-xl mb-6;
+  color: var(--text2);
   line-height: 1.75;
 }
 
-/* Subtle gold underline on hover for links */
+/* Link with gold underline on hover */
 .link-hover-gold {
   position: relative;
+  color: var(--text2);
   transition: color 0.2s ease;
+}
+
+.link-hover-gold:hover {
+  color: var(--text);
 }
 
 .link-hover-gold::after {
@@ -61,7 +76,7 @@ body {
   bottom: -2px;
   width: 0;
   height: 2px;
-  background: var(--hm-gold);
+  background: var(--brand-gold);
   border-radius: 1px;
   transition: width 0.2s ease;
 }
@@ -70,24 +85,61 @@ body {
   width: 100%;
 }
 
-/* Button with gold underline accent on hover */
-.btn-gold-accent {
+/* Primary button: gold bg + brandBlue text */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  background: var(--brand-gold);
+  color: var(--brand-blue);
+  transition: all 0.2s ease;
+  border: 2px solid var(--brand-gold);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--brand-gold);
+  box-shadow: 0 0 20px rgba(255, 195, 11, 0.15);
+}
+
+/* Secondary button: transparent with border + gold hover */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  background: transparent;
+  color: var(--text2);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
   position: relative;
 }
 
-.btn-gold-accent::after {
+.btn-secondary::after {
   content: '';
   position: absolute;
   left: 50%;
-  bottom: 6px;
+  bottom: 8px;
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: var(--hm-gold);
+  background: var(--brand-gold);
   border-radius: 1px;
   transition: width 0.2s ease;
 }
 
-.btn-gold-accent:hover::after {
-  width: 40%;
+.btn-secondary:hover {
+  color: var(--text);
+  border-color: var(--brand-gold);
+}
+
+.btn-secondary:hover::after {
+  width: 30%;
 }
