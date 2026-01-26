@@ -41,20 +41,20 @@ export const metadata: Metadata = {
 
 function AnnouncementStrip() {
   return (
-    <div className="w-full bg-white/5 border-b border-white/10 py-2">
+    <div className="w-full bg-white/5 border-b border-white/10 py-3 md:py-2">
       <Container>
-        <p className="text-center text-sm text-white/70">
+        <p className="text-center text-sm text-white/70 leading-relaxed">
           New here?{" "}
           <Link
             href="/start-here"
-            className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+            className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm px-1 py-0.5 -mx-1"
           >
             Start at Start Here
           </Link>
           . Need prayer?{" "}
           <Link
             href="/prayer"
-            className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+            className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm px-1 py-0.5 -mx-1"
           >
             Request Prayer
           </Link>
@@ -69,14 +69,14 @@ function Header() {
   return (
     <header className="w-full border-b border-white/10">
       <Container>
-        <nav className="flex items-center justify-between py-4">
+        <nav className="flex flex-wrap items-center justify-between gap-2 py-3 md:py-4">
           <Link
             href="/"
-            className="text-xl font-semibold text-white hover:text-[var(--accent)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm"
+            className="text-xl font-semibold text-white hover:text-[var(--accent)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm py-1"
           >
             His Minute
           </Link>
-          <ul className="flex items-center gap-4 text-sm md:gap-6">
+          <ul className="flex flex-wrap items-center gap-1 text-sm md:gap-2">
             <li>
               <NavLink href="/start-here">Start Here</NavLink>
             </li>
@@ -106,11 +106,11 @@ function Footer() {
           One verse. One minute. Jesus changes everything.
         </p>
         <p className="text-center text-white/60 text-sm mb-4">@hisminute</p>
-        <ul className="flex items-center justify-center gap-6 text-sm mb-4">
+        <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm mb-4">
           <li>
             <Link
               href="/start-here"
-              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm"
+              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
             >
               Start Here
             </Link>
@@ -118,7 +118,7 @@ function Footer() {
           <li>
             <Link
               href="/prayer"
-              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm"
+              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
             >
               Prayer
             </Link>
@@ -126,7 +126,7 @@ function Footer() {
           <li>
             <Link
               href="/support"
-              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm"
+              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
             >
               Support
             </Link>

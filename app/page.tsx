@@ -1,20 +1,17 @@
-"use client";
-
-import { useState, FormEvent } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
+import { EmailSignup } from "@/components/EmailSignup";
 import { videos } from "@/content/videos";
 
+export const metadata: Metadata = {
+  title: "His Minute",
+  description: "One verse. One minute. Jesus changes everything.",
+};
+
 export default function Home() {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-
-  const handleEmailSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setEmailSubmitted(true);
-  };
-
   return (
     <Container className="py-12 md:py-20">
       {/* Hero Section */}
@@ -110,30 +107,7 @@ export default function Home() {
         <p className="text-white/80 mb-6 leading-relaxed">
           Get a simple daily email with the verse and link.
         </p>
-        {emailSubmitted ? (
-          <div className="bg-[var(--accent)]/20 border border-[var(--accent)] rounded-lg p-6 text-center mb-4">
-            <p className="text-white font-medium">
-              Thanks! Email sign-up is coming soon.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleEmailSubmit} className="mb-4">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                required
-                placeholder="your@email.com"
-                className="flex-1 px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
-              />
-              <Button type="submit" variant="primary">
-                Sign up
-              </Button>
-            </div>
-          </form>
-        )}
-        <p className="text-white/50 text-sm">
-          No spam. Unsubscribe anytime.
-        </p>
+        <EmailSignup />
       </Section>
 
       {/* Trust/Clarity Line */}

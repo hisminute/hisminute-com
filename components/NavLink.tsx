@@ -14,7 +14,7 @@ export function NavLink({ href, children, className = "" }: NavLinkProps) {
   const isActive = pathname === href;
 
   const baseStyles =
-    "transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm";
+    "block px-3 py-2 -mx-1 rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
 
   const activeStyles = isActive
     ? "text-[var(--accent)] underline underline-offset-4"
