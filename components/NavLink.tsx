@@ -18,7 +18,7 @@ export function NavLink({ href, children, className = "" }: NavLinkProps) {
 
   const activeStyles = isActive
     ? "text-[var(--accent)] underline underline-offset-4"
-    : "text-white/80 hover:text-white";
+    : "text-[var(--foreground)]/80 hover:text-[var(--foreground)]";
 
   return (
     <Link

@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import { Fraunces } from "next/font/google";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { NavLink } from "@/components/NavLink";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 // Set NEXT_PUBLIC_SITE_URL in Vercel environment variables to https://hisminute.com
@@ -43,7 +45,7 @@ function AnnouncementStrip() {
   return (
     <div className="w-full bg-white/5 border-b border-white/10 py-3 md:py-2">
       <Container>
-        <p className="text-center text-sm text-white/70 leading-relaxed">
+        <p className="text-center text-sm text-[var(--foreground)]/70 leading-relaxed">
           New here?{" "}
           <Link
             href="/start-here"
@@ -69,10 +71,10 @@ function Header() {
   return (
     <header className="w-full border-b border-white/10">
       <Container>
-        <nav className="flex flex-wrap items-center justify-between gap-2 py-3 md:py-4">
+        <nav className="flex flex-wrap items-center justify-between gap-2 py-4 md:py-5">
           <Link
             href="/"
-            className="text-xl font-semibold text-white hover:text-[var(--accent)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm py-1"
+            className="text-xl font-heading font-semibold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm py-1"
           >
             His Minute
           </Link>
@@ -101,16 +103,16 @@ function Footer() {
 
   return (
     <footer className="w-full border-t border-white/10 mt-auto">
-      <Container className="py-8">
-        <p className="text-center text-[var(--accent)] font-medium mb-4">
+      <Container className="py-12 md:py-16">
+        <p className="text-center text-[var(--accent)] font-heading font-medium text-lg mb-4">
           One verse. One minute. Jesus changes everything.
         </p>
-        <p className="text-center text-white/60 text-sm mb-4">@hisminute</p>
-        <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm mb-4">
+        <p className="text-center text-[var(--foreground)]/60 text-sm mb-6">@hisminute</p>
+        <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm mb-6">
           <li>
             <Link
               href="/start-here"
-              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
             >
               Start Here
             </Link>
@@ -118,7 +120,7 @@ function Footer() {
           <li>
             <Link
               href="/prayer"
-              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
             >
               Prayer
             </Link>
@@ -126,13 +128,13 @@ function Footer() {
           <li>
             <Link
               href="/support"
-              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
             >
               Support
             </Link>
           </li>
         </ul>
-        <p className="text-center text-white/40 text-xs">
+        <p className="text-center text-[var(--foreground)]/40 text-xs">
           © {currentYear} His Minute
         </p>
       </Container>
@@ -148,7 +150,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} ${fraunces.variable} antialiased min-h-screen flex flex-col`}
       >
         <AnnouncementStrip />
         <Header />

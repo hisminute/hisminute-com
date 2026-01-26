@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Container } from "@/components/Container";
-import { Section } from "@/components/Section";
+import { Card } from "@/components/Card";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/Button";
 import { CtaStrip } from "@/components/CtaStrip";
 
@@ -67,19 +68,20 @@ export default function Support() {
   return (
     <Container className="py-12 md:py-20">
       {/* 1) H1 + Subhead */}
-      <section className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+      <section className="mb-12 md:mb-16">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[var(--foreground)] mb-4">
           Support His Minute
         </h1>
-        <p className="text-lg text-white/80 leading-relaxed">
+        <p className="text-lg md:text-xl text-[var(--foreground)]/80 leading-relaxed max-w-prose">
           Support is optional — but it helps us reach more people with uplifting,
           Christ-centered encouragement.
         </p>
       </section>
 
       {/* 2) His Minute Hope Partners (tiers + give once) */}
-      <Section title="His Minute Hope Partners">
-        <p className="text-white/80 leading-relaxed mb-8">
+      <section className="mb-12 md:mb-16">
+        <SectionHeader title="His Minute Hope Partners" className="mb-6" />
+        <p className="text-[var(--foreground)]/80 leading-relaxed mb-10 max-w-prose">
           Hope Partners help us share uplifting Scripture encouragement every day
           and reach more people with the hope of Jesus. Support is optional, and
           the message will always be free.
@@ -88,15 +90,14 @@ export default function Support() {
         {/* Tier Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {tiers.map((tier) => (
-            <div
-              key={tier.name}
-              className="border border-white/20 rounded-lg p-6 bg-white/5"
-            >
-              <h3 className="text-xl font-bold text-white mb-1">{tier.name}</h3>
+            <Card key={tier.name}>
+              <h3 className="text-xl font-heading font-bold text-[var(--foreground)] mb-1">
+                {tier.name}
+              </h3>
               <p className="text-[var(--accent)] font-semibold mb-4">
                 {tier.price}
               </p>
-              <ul className="space-y-2 text-white/70 text-sm mb-6">
+              <ul className="space-y-2 text-[var(--foreground)]/70 text-sm mb-6">
                 {tier.perks.map((perk, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <span className="text-[var(--accent)]">•</span>
@@ -116,13 +117,14 @@ export default function Support() {
                   Partner sign-up coming soon.
                 </p>
               )}
-            </div>
+            </Card>
           ))}
         </div>
-      </Section>
+      </section>
 
       {/* Give Once */}
-      <Section title="Give once">
+      <section className="mb-12 md:mb-16">
+        <SectionHeader title="Give once" className="mb-6" />
         <div className="flex flex-wrap gap-3 mb-4">
           {giveOnceAmounts.map((amount) => (
             <Button
@@ -139,44 +141,49 @@ export default function Support() {
             Giving options coming soon.
           </p>
         )}
-      </Section>
+      </section>
 
       {/* 3) Encouragement paragraph */}
-      <Section>
-        <p className="text-white/70 leading-relaxed">
+      <section className="mb-12 md:mb-16">
+        <p className="text-[var(--foreground)]/70 leading-relaxed max-w-prose">
           If His Minute encourages you, optional support helps us produce and
           distribute more daily Scripture encouragement.
         </p>
-      </Section>
+      </section>
 
       {/* 4) What Your Support Helps Fund */}
-      <Section title="What your support helps fund">
-        <ul className="space-y-3 text-white/80 leading-relaxed">
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--accent)]">•</span>
-            <span>Daily filming + editing + captions</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--accent)]">•</span>
-            <span>Tools and templates for consistent quality</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--accent)]">•</span>
-            <span>Website + email delivery</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--accent)]">•</span>
-            <span>Distribution and occasional promotion to reach new people</span>
-          </li>
-        </ul>
-      </Section>
+      <section className="mb-12 md:mb-16">
+        <SectionHeader title="What your support helps fund" className="mb-6" />
+        <Card>
+          <ul className="space-y-4 text-[var(--foreground)]/80 leading-relaxed">
+            <li className="flex items-start gap-3">
+              <span className="text-[var(--accent)] text-lg">•</span>
+              <span>Daily filming + editing + captions</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-[var(--accent)] text-lg">•</span>
+              <span>Tools and templates for consistent quality</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-[var(--accent)] text-lg">•</span>
+              <span>Website + email delivery</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-[var(--accent)] text-lg">•</span>
+              <span>Distribution and occasional promotion to reach new people</span>
+            </li>
+          </ul>
+        </Card>
+      </section>
 
       {/* 5) No-Pressure Line (once, after bullets) */}
-      <Section>
-        <p className="text-[var(--accent)] font-medium text-lg border-l-4 border-[var(--accent)] pl-4 py-2">
-          Jesus is free. We'll never gate the message behind giving.
-        </p>
-      </Section>
+      <section className="mb-0">
+        <Card className="text-center py-8">
+          <p className="text-[var(--accent)] font-heading font-medium text-lg">
+            Jesus is free. We'll never gate the message behind giving.
+          </p>
+        </Card>
+      </section>
 
       <CtaStrip />
     </Container>
