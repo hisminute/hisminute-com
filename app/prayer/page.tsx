@@ -8,13 +8,25 @@ import { CtaStrip } from "@/components/CtaStrip";
 
 type FormStatus = "idle" | "loading" | "success" | "error" | "rate_limit";
 
+const CATEGORY_OPTIONS = [
+  { value: "", label: "Select a category" },
+  { value: "healing", label: "Healing" },
+  { value: "guidance", label: "Guidance" },
+  { value: "family", label: "Family" },
+  { value: "anxiety", label: "Anxiety" },
+  { value: "salvation", label: "Salvation" },
+  { value: "other", label: "Other" },
+];
+
 export default function Prayer() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [request, setRequest] = useState("");
+  const [category, setCategory] = useState("");
   const [consentToContact, setConsentToContact] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const [refCode, setRefCode] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,6 +41,7 @@ export default function Prayer() {
           email: email.trim() || undefined,
           consentToContact: email.trim() ? consentToContact : false,
           request: request.trim(),
+          category: category || undefined,
           website: honeypot, // honeypot field
         }),
       });
@@ -39,6 +52,7 @@ export default function Prayer() {
         setStatus("rate_limit");
       } else if (data.ok) {
         setStatus("success");
+        setRefCode(data.ref || null);
         setRequest("");
       } else {
         setStatus("error");
@@ -74,7 +88,7 @@ export default function Prayer() {
           {status === "success" ? (
             <div className="bg-[var(--accent)]/20 border border-[var(--accent)] rounded-lg p-6 text-center">
               <p className="text-[var(--foreground)] font-medium">
-                Thanks. We received your request.
+                Thanks. We received your request.{refCode ? ` (Ref: ${refCode})` : ""}
               </p>
             </div>
           ) : (
@@ -144,24 +158,52 @@ export default function Prayer() {
 
               {/* Consent checkbox - only show if email is provided */}
               {email.trim() !== "" && (
-                <div className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    name="consent"
-                    checked={consentToContact}
-                    onChange={(e) => setConsentToContact(e.target.checked)}
-                    disabled={isLoading}
-                    className="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-[var(--accent)] focus:ring-[var(--accent)] focus:ring-offset-0"
-                  />
-                  <label
-                    htmlFor="consent"
-                    className="text-sm text-[var(--foreground)]/70 leading-relaxed"
-                  >
-                    Yes, you may email me encouragement and updates from His Minute.
-                  </label>
+                <div>
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      id="consent"
+                      name="consent"
+                      checked={consentToContact}
+                      onChange={(e) => setConsentToContact(e.target.checked)}
+                      disabled={isLoading}
+                      className="mt-1 w-4 h-4 rounded border-white/20 bg-white/5 text-[var(--accent)] focus:ring-[var(--accent)] focus:ring-offset-0"
+                    />
+                    <label
+                      htmlFor="consent"
+                      className="text-sm text-[var(--foreground)]/70 leading-relaxed"
+                    >
+                      Yes, you may email me encouragement and updates from His Minute.
+                    </label>
+                  </div>
+                  <p className="text-xs text-[var(--foreground)]/50 mt-2 ml-7">
+                    We'll only email you if you check this box.
+                  </p>
                 </div>
               )}
+
+              <div>
+                <label
+                  htmlFor="category"
+                  className="block text-sm font-medium text-[var(--foreground)]/80 mb-2"
+                >
+                  Category (optional)
+                </label>
+                <select
+                  id="category"
+                  name="category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  disabled={isLoading}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-[var(--foreground)] focus:border-[var(--accent)] focus:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] disabled:opacity-50"
+                >
+                  {CATEGORY_OPTIONS.map((opt) => (
+                    <option key={opt.value} value={opt.value} className="bg-[var(--background)] text-[var(--foreground)]">
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
               <div>
                 <label
