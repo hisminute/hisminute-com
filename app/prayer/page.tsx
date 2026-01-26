@@ -4,6 +4,7 @@ import { useState, FormEvent } from "react";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
+import { CtaStrip } from "@/components/CtaStrip";
 
 export default function Prayer() {
   const [submitted, setSubmitted] = useState(false);
@@ -23,8 +24,11 @@ export default function Prayer() {
         <p className="text-lg text-white/80 mb-6 leading-relaxed">
           You're not alone. We'll pray for you.
         </p>
-        <p className="text-white/60 text-sm">
+        <p className="text-white/60 text-sm mb-2">
           We keep requests private and never share without permission.
+        </p>
+        <p className="text-white/60 text-sm">
+          Please don't include extremely sensitive personal information.
         </p>
       </section>
 
@@ -100,6 +104,8 @@ export default function Prayer() {
           If you are in immediate danger, contact your local emergency services.
         </p>
       </section>
+
+      <CtaStrip />
     </Container>
   );
 }

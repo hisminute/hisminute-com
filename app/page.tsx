@@ -1,15 +1,20 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState, FormEvent } from "react";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { Button } from "@/components/Button";
 import { videos } from "@/content/videos";
 
-export const metadata: Metadata = {
-  title: "His Minute",
-  description: "One verse. One minute. Jesus changes everything.",
-};
-
 export default function Home() {
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  const handleEmailSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setEmailSubmitted(true);
+  };
+
   return (
     <Container className="py-12 md:py-20">
       {/* Hero Section */}
@@ -53,7 +58,7 @@ export default function Home() {
       </Section>
 
       {/* Latest Videos Section */}
-      <Section title="Latest videos" className="mb-0">
+      <Section title="Latest videos">
         <ul className="space-y-4 mb-6">
           {videos.map((video, index) => (
             <li
@@ -72,6 +77,71 @@ export default function Home() {
           Videos coming soon. Follow @hisminute on TikTok, Instagram, YouTube, and X.
         </p>
       </Section>
+
+      {/* Home CTA Section */}
+      <Section title="Take your next step">
+        <p className="text-white/80 mb-2 leading-relaxed">
+          Start here if you're new to Jesus (or coming back).
+        </p>
+        <p className="text-white/80 mb-6 leading-relaxed">
+          Need prayer? We're here for you.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 mb-4">
+          <Button href="/start-here" variant="primary">
+            Start Here
+          </Button>
+          <Button href="/prayer" variant="secondary">
+            Request Prayer
+          </Button>
+        </div>
+        <p className="text-sm text-white/60">
+          Optional support:{" "}
+          <Link
+            href="/support"
+            className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+          >
+            Support His Minute
+          </Link>
+        </p>
+      </Section>
+
+      {/* Email Signup Section */}
+      <Section title="Get the daily verse">
+        <p className="text-white/80 mb-6 leading-relaxed">
+          Get a simple daily email with the verse and link.
+        </p>
+        {emailSubmitted ? (
+          <div className="bg-[var(--accent)]/20 border border-[var(--accent)] rounded-lg p-6 text-center mb-4">
+            <p className="text-white font-medium">
+              Thanks! Email sign-up is coming soon.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleEmailSubmit} className="mb-4">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                required
+                placeholder="your@email.com"
+                className="flex-1 px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+              />
+              <Button type="submit" variant="primary">
+                Sign up
+              </Button>
+            </div>
+          </form>
+        )}
+        <p className="text-white/50 text-sm">
+          No spam. Unsubscribe anytime.
+        </p>
+      </Section>
+
+      {/* Trust/Clarity Line */}
+      <section className="mb-0">
+        <p className="text-[var(--accent)] font-medium text-lg border-l-4 border-[var(--accent)] pl-4 py-2">
+          Jesus is free. We'll never gate the message behind giving.
+        </p>
+      </section>
     </Container>
   );
 }

@@ -15,9 +15,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Set NEXT_PUBLIC_SITE_URL in Vercel environment variables to https://hisminute.com
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+// TODO: Replace public/og.png with a proper 1200x630 branded PNG before launch.
+// A reference design exists at public/og.svg with the correct layout and branding.
+
 export const metadata: Metadata = {
-  // TODO: Set metadataBase when deployment URL is known
-  // metadataBase: new URL("https://hisminute.com"),
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: "His Minute",
   description: "One verse. One minute. Jesus changes everything.",
   openGraph: {
@@ -33,6 +38,32 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
 };
+
+function AnnouncementStrip() {
+  return (
+    <div className="w-full bg-white/5 border-b border-white/10 py-2">
+      <Container>
+        <p className="text-center text-sm text-white/70">
+          New here?{" "}
+          <Link
+            href="/start-here"
+            className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+          >
+            Start at Start Here
+          </Link>
+          . Need prayer?{" "}
+          <Link
+            href="/prayer"
+            className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+          >
+            Request Prayer
+          </Link>
+          .
+        </p>
+      </Container>
+    </div>
+  );
+}
 
 function Header() {
   return (
@@ -119,6 +150,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
+        <AnnouncementStrip />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

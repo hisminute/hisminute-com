@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
+import { CtaStrip } from "@/components/CtaStrip";
 
 export const metadata: Metadata = {
   title: "Start Here — His Minute",
@@ -76,6 +77,8 @@ export default function StartHere() {
           </li>
         </ul>
       </Section>
+
+      <CtaStrip />
     </Container>
   );
 }

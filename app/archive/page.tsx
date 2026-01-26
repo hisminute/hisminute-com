@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
+import { CtaStrip } from "@/components/CtaStrip";
 
 export const metadata: Metadata = {
   title: "Archive — His Minute",
@@ -16,6 +17,8 @@ export default function Archive() {
       <p className="text-white/60 leading-relaxed">
         We'll post a daily verse list here with links to each video.
       </p>
+
+      <CtaStrip />
     </Container>
   );
 }
