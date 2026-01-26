@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Container } from "@/components/Container";
+import { Section } from "@/components/Section";
+import { Button } from "@/components/Button";
+import { videos } from "@/content/videos";
 
 export const metadata: Metadata = {
   title: "His Minute",
@@ -8,35 +11,28 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 md:py-20">
+    <Container className="py-12 md:py-20">
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
           One verse. One minute. Jesus changes everything.
         </h1>
-        <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
           Daily Scripture you can understand and live today — meaning + one step.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/start-here"
-            className="inline-block w-full sm:w-auto px-8 py-3 bg-[var(--accent)] text-[var(--background)] font-semibold rounded-lg hover:opacity-90 transition-opacity text-center"
-          >
+          <Button href="/start-here" variant="primary">
             Start Here
-          </Link>
-          <Link
-            href="/prayer"
-            className="inline-block w-full sm:w-auto px-8 py-3 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-center"
-          >
+          </Button>
+          <Button href="/prayer" variant="secondary">
             Request Prayer
-          </Link>
+          </Button>
         </div>
       </section>
 
       {/* What to Expect Section */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-bold text-white mb-6">What to expect</h2>
-        <ul className="space-y-3 text-white/80">
+      <Section title="What to expect">
+        <ul className="space-y-3 text-white/80 leading-relaxed">
           <li className="flex items-start gap-3">
             <span className="text-[var(--accent)]">•</span>
             <span>One verse (read aloud)</span>
@@ -54,15 +50,28 @@ export default function Home() {
             <span>Invitation to Jesus</span>
           </li>
         </ul>
-      </section>
+      </Section>
 
       {/* Latest Videos Section */}
-      <section>
-        <h2 className="text-2xl font-bold text-white mb-6">Latest videos</h2>
+      <Section title="Latest videos" className="mb-0">
+        <ul className="space-y-4 mb-6">
+          {videos.map((video, index) => (
+            <li
+              key={index}
+              className="border border-white/10 rounded-lg p-4 bg-white/5"
+            >
+              <p className="text-white font-medium">{video.title}</p>
+              <p className="text-white/50 text-sm">{video.platform}</p>
+              {video.url === null && (
+                <p className="text-[var(--accent)] text-sm mt-1">Coming soon</p>
+              )}
+            </li>
+          ))}
+        </ul>
         <p className="text-white/60">
           Videos coming soon. Follow @hisminute on TikTok, Instagram, YouTube, and X.
         </p>
-      </section>
-    </div>
+      </Section>
+    </Container>
   );
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Container } from "@/components/Container";
+import { Section } from "@/components/Section";
 
 export const metadata: Metadata = {
   title: "Start Here — His Minute",
@@ -7,21 +9,20 @@ export const metadata: Metadata = {
 
 export default function StartHere() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 md:py-20">
+    <Container className="py-12 md:py-20">
       {/* Header */}
       <section className="mb-12">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Start here.
         </h1>
-        <p className="text-lg text-white/80">
+        <p className="text-lg text-white/80 leading-relaxed">
           If you're new to Jesus (or coming back), this is for you.
         </p>
       </section>
 
       {/* The Good News */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-white mb-6">The good news</h2>
-        <ol className="space-y-4 text-white/80">
+      <Section title="The good news">
+        <ol className="space-y-4 text-white/80 leading-relaxed">
           <li className="flex items-start gap-3">
             <span className="text-[var(--accent)] font-semibold">1.</span>
             <span>God loves you — He made you for Him.</span>
@@ -37,29 +38,26 @@ export default function StartHere() {
             </span>
           </li>
         </ol>
-      </section>
+      </Section>
 
       {/* A Simple Next Step */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-white mb-4">A simple next step</h2>
-        <p className="text-white/80">Turn to Jesus: believe, receive, follow.</p>
-      </section>
+      <Section title="A simple next step">
+        <p className="text-white/80 leading-relaxed">
+          Turn to Jesus: believe, receive, follow.
+        </p>
+      </Section>
 
       {/* A Simple Prayer */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-white mb-4">
-          A simple prayer (optional)
-        </h2>
+      <Section title="A simple prayer (optional)">
         <blockquote className="border-l-4 border-[var(--accent)] pl-4 py-2 text-white/90 italic bg-white/5 rounded-r-lg">
           "Jesus, I believe You are Lord. Forgive my sin. Make me new. Lead my
           life. Amen."
         </blockquote>
-      </section>
+      </Section>
 
       {/* Next Steps */}
-      <section>
-        <h2 className="text-2xl font-bold text-white mb-6">Next steps</h2>
-        <ul className="space-y-3 text-white/80">
+      <Section title="Next steps" className="mb-0">
+        <ul className="space-y-3 text-white/80 leading-relaxed">
           <li className="flex items-start gap-3">
             <span className="text-[var(--accent)]">•</span>
             <span>Read the Gospel of John</span>
@@ -77,7 +75,7 @@ export default function StartHere() {
             <span>Request prayer at hisminute.com</span>
           </li>
         </ul>
-      </section>
-    </div>
+      </Section>
+    </Container>
   );
 }

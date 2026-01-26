@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { Container } from "@/components/Container";
+import { Section } from "@/components/Section";
+import { Button } from "@/components/Button";
 
 export default function Support() {
   const [showMessage, setShowMessage] = useState(false);
@@ -11,28 +14,25 @@ export default function Support() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 md:py-20">
+    <Container className="py-12 md:py-20">
       {/* Header */}
       <section className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Support His Minute
         </h1>
-        <p className="text-lg text-white/80 mb-6">
+        <p className="text-lg text-white/80 mb-6 leading-relaxed">
           Support is optional — but it helps us reach more people with uplifting,
           Christ-centered encouragement.
         </p>
-        <p className="text-white/70">
+        <p className="text-white/70 leading-relaxed">
           If His Minute encourages you, optional support helps us produce and
           distribute more daily Scripture encouragement.
         </p>
       </section>
 
       {/* What Your Support Helps Fund */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-white mb-6">
-          What your support helps fund
-        </h2>
-        <ul className="space-y-3 text-white/80">
+      <Section title="What your support helps fund">
+        <ul className="space-y-3 text-white/80 leading-relaxed">
           <li className="flex items-start gap-3">
             <span className="text-[var(--accent)]">•</span>
             <span>Daily filming + editing + captions</span>
@@ -50,30 +50,24 @@ export default function Support() {
             <span>Distribution and occasional promotion to reach new people</span>
           </li>
         </ul>
-      </section>
+      </Section>
 
       {/* No-Pressure Line */}
-      <section className="mb-12">
+      <Section>
         <p className="text-[var(--accent)] font-medium text-lg border-l-4 border-[var(--accent)] pl-4 py-2">
           Jesus is free. We'll never gate the message behind giving.
         </p>
-      </section>
+      </Section>
 
       {/* Buttons */}
       <section className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-4">
-          <button
-            onClick={handleButtonClick}
-            className="w-full sm:w-auto px-8 py-3 bg-[var(--accent)] text-[var(--background)] font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-          >
+          <Button onClick={handleButtonClick} variant="primary">
             Become a monthly partner
-          </button>
-          <button
-            onClick={handleButtonClick}
-            className="w-full sm:w-auto px-8 py-3 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
-          >
+          </Button>
+          <Button onClick={handleButtonClick} variant="secondary">
             Give once
-          </button>
+          </Button>
         </div>
         {showMessage && (
           <p className="text-[var(--accent)] text-sm">
@@ -81,6 +75,6 @@ export default function Support() {
           </p>
         )}
       </section>
-    </div>
+    </Container>
   );
 }

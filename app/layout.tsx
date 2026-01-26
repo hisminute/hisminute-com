@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { Container } from "@/components/Container";
+import { NavLink } from "@/components/NavLink";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,55 +16,51 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // TODO: Set metadataBase when deployment URL is known
+  // metadataBase: new URL("https://hisminute.com"),
   title: "His Minute",
   description: "One verse. One minute. Jesus changes everything.",
+  openGraph: {
+    title: "His Minute",
+    description: "One verse. One minute. Jesus changes everything.",
+    images: ["/og.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "His Minute",
+    description: "One verse. One minute. Jesus changes everything.",
+    images: ["/og.png"],
+  },
 };
 
 function Header() {
   return (
     <header className="w-full border-b border-white/10">
-      <nav className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
-        <Link
-          href="/"
-          className="text-xl font-semibold text-white hover:text-[var(--accent)] transition-colors"
-        >
-          His Minute
-        </Link>
-        <ul className="flex items-center gap-4 text-sm md:gap-6">
-          <li>
-            <Link
-              href="/start-here"
-              className="text-white/80 hover:text-white transition-colors"
-            >
-              Start Here
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/prayer"
-              className="text-white/80 hover:text-white transition-colors"
-            >
-              Prayer
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/support"
-              className="text-white/80 hover:text-white transition-colors"
-            >
-              Support
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/archive"
-              className="text-white/80 hover:text-white transition-colors"
-            >
-              Archive
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Container>
+        <nav className="flex items-center justify-between py-4">
+          <Link
+            href="/"
+            className="text-xl font-semibold text-white hover:text-[var(--accent)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm"
+          >
+            His Minute
+          </Link>
+          <ul className="flex items-center gap-4 text-sm md:gap-6">
+            <li>
+              <NavLink href="/start-here">Start Here</NavLink>
+            </li>
+            <li>
+              <NavLink href="/prayer">Prayer</NavLink>
+            </li>
+            <li>
+              <NavLink href="/support">Support</NavLink>
+            </li>
+            <li>
+              <NavLink href="/archive">Archive</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </Container>
     </header>
   );
 }
@@ -72,7 +70,7 @@ function Footer() {
 
   return (
     <footer className="w-full border-t border-white/10 mt-auto">
-      <div className="mx-auto max-w-4xl px-4 py-8">
+      <Container className="py-8">
         <p className="text-center text-[var(--accent)] font-medium mb-4">
           One verse. One minute. Jesus changes everything.
         </p>
@@ -81,7 +79,7 @@ function Footer() {
           <li>
             <Link
               href="/start-here"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm"
             >
               Start Here
             </Link>
@@ -89,7 +87,7 @@ function Footer() {
           <li>
             <Link
               href="/prayer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm"
             >
               Prayer
             </Link>
@@ -97,7 +95,7 @@ function Footer() {
           <li>
             <Link
               href="/support"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm"
             >
               Support
             </Link>
@@ -106,7 +104,7 @@ function Footer() {
         <p className="text-center text-white/40 text-xs">
           © {currentYear} His Minute
         </p>
-      </div>
+      </Container>
     </footer>
   );
 }

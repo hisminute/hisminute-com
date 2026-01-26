@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { Container } from "@/components/Container";
+import { Section } from "@/components/Section";
+import { Button } from "@/components/Button";
 
 export default function Prayer() {
   const [submitted, setSubmitted] = useState(false);
@@ -11,13 +14,13 @@ export default function Prayer() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 md:py-20">
+    <Container className="py-12 md:py-20">
       {/* Header */}
       <section className="mb-8">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Request prayer.
         </h1>
-        <p className="text-lg text-white/80 mb-6">
+        <p className="text-lg text-white/80 mb-6 leading-relaxed">
           You're not alone. We'll pray for you.
         </p>
         <p className="text-white/60 text-sm">
@@ -26,7 +29,7 @@ export default function Prayer() {
       </section>
 
       {/* Form */}
-      <section className="mb-8">
+      <Section>
         {submitted ? (
           <div className="bg-[var(--accent)]/20 border border-[var(--accent)] rounded-lg p-6 text-center">
             <p className="text-white font-medium">
@@ -46,7 +49,7 @@ export default function Prayer() {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors"
+                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
                 placeholder="Your name"
               />
             </div>
@@ -62,7 +65,7 @@ export default function Prayer() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors"
+                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
                 placeholder="your@email.com"
               />
             </div>
@@ -79,20 +82,17 @@ export default function Prayer() {
                 name="request"
                 required
                 rows={5}
-                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors resize-none"
+                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
                 placeholder="Share your prayer request..."
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full sm:w-auto px-8 py-3 bg-[var(--accent)] text-[var(--background)] font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-            >
+            <Button type="submit" variant="primary">
               Send request
-            </button>
+            </Button>
           </form>
         )}
-      </section>
+      </Section>
 
       {/* Safety Note */}
       <section>
@@ -100,6 +100,6 @@ export default function Prayer() {
           If you are in immediate danger, contact your local emergency services.
         </p>
       </section>
-    </div>
+    </Container>
   );
 }
