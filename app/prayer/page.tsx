@@ -118,6 +118,51 @@ export default function Prayer() {
 
               <div>
                 <label
+                  htmlFor="request"
+                  className="block text-sm font-medium text-[var(--foreground)]/80 mb-2"
+                >
+                  Prayer request <span className="text-[var(--accent)]">*</span>
+                </label>
+                <textarea
+                  id="request"
+                  name="request"
+                  required
+                  rows={5}
+                  minLength={3}
+                  maxLength={2000}
+                  value={request}
+                  onChange={(e) => setRequest(e.target.value)}
+                  disabled={isLoading}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-[var(--foreground)] placeholder-[var(--foreground)]/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] disabled:opacity-50"
+                  placeholder="Share your prayer request..."
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="category"
+                  className="block text-sm font-medium text-[var(--foreground)]/80 mb-2"
+                >
+                  Category (optional)
+                </label>
+                <select
+                  id="category"
+                  name="category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  disabled={isLoading}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-[var(--foreground)] focus:border-[var(--accent)] focus:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] disabled:opacity-50"
+                >
+                  {CATEGORY_OPTIONS.map((opt) => (
+                    <option key={opt.value} value={opt.value} className="bg-[var(--background)] text-[var(--foreground)]">
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label
                   htmlFor="name"
                   className="block text-sm font-medium text-[var(--foreground)]/80 mb-2"
                 >
@@ -181,51 +226,6 @@ export default function Prayer() {
                   </p>
                 </div>
               )}
-
-              <div>
-                <label
-                  htmlFor="category"
-                  className="block text-sm font-medium text-[var(--foreground)]/80 mb-2"
-                >
-                  Category (optional)
-                </label>
-                <select
-                  id="category"
-                  name="category"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  disabled={isLoading}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-[var(--foreground)] focus:border-[var(--accent)] focus:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] disabled:opacity-50"
-                >
-                  {CATEGORY_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value} className="bg-[var(--background)] text-[var(--foreground)]">
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="request"
-                  className="block text-sm font-medium text-[var(--foreground)]/80 mb-2"
-                >
-                  Prayer request <span className="text-[var(--accent)]">*</span>
-                </label>
-                <textarea
-                  id="request"
-                  name="request"
-                  required
-                  rows={5}
-                  minLength={3}
-                  maxLength={2000}
-                  value={request}
-                  onChange={(e) => setRequest(e.target.value)}
-                  disabled={isLoading}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-[var(--foreground)] placeholder-[var(--foreground)]/40 focus:border-[var(--accent)] focus:bg-white/10 transition-colors resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] disabled:opacity-50"
-                  placeholder="Share your prayer request..."
-                />
-              </div>
 
               {/* Error messages */}
               {status === "rate_limit" && (
