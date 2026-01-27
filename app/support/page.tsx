@@ -7,9 +7,18 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/Button";
 import { CtaStrip } from "@/components/CtaStrip";
 
-const tiers = [
+type SubscriptionTier = "hope" | "encouragement" | "outreach" | "legacy";
+
+const tiers: Array<{
+  name: string;
+  tier: SubscriptionTier;
+  price: string;
+  buttonText: string;
+  perks: string[];
+}> = [
   {
     name: "Hope Partner",
+    tier: "hope",
     price: "$5/month",
     buttonText: "Become a Hope Partner",
     perks: [
@@ -19,6 +28,7 @@ const tiers = [
   },
   {
     name: "Growth Partner",
+    tier: "encouragement",
     price: "$15/month",
     buttonText: "Become a Growth Partner",
     perks: [
@@ -28,6 +38,7 @@ const tiers = [
   },
   {
     name: "Reach Partner",
+    tier: "outreach",
     price: "$35/month",
     buttonText: "Become a Reach Partner",
     perks: [
@@ -37,6 +48,7 @@ const tiers = [
   },
   {
     name: "Legacy Partner",
+    tier: "legacy",
     price: "$100/month",
     buttonText: "Become a Legacy Partner",
     perks: [
@@ -47,22 +59,67 @@ const tiers = [
   },
 ];
 
-const giveOnceAmounts = ["$10", "$25", "$50", "$100", "Custom"];
+const giveOnceAmounts = [
+  { label: "$10", amount: 10 },
+  { label: "$25", amount: 25 },
+  { label: "$50", amount: 50 },
+  { label: "$100", amount: 100 },
+];
 
 export default function Support() {
-  const [tierMessages, setTierMessages] = useState<Record<string, boolean>>({});
-  const [giveOnceMessage, setGiveOnceMessage] = useState(false);
+  const [loadingTier, setLoadingTier] = useState<SubscriptionTier | null>(null);
+  const [loadingAmount, setLoadingAmount] = useState<number | null>(null);
+  const [tierError, setTierError] = useState<SubscriptionTier | null>(null);
+  const [amountError, setAmountError] = useState<number | null>(null);
 
-  const handleTierClick = (tierName: string) => {
-    setTierMessages((prev) => ({ ...prev, [tierName]: true }));
-    setTimeout(() => {
-      setTierMessages((prev) => ({ ...prev, [tierName]: false }));
-    }, 3000);
+  const handleTierClick = async (tier: SubscriptionTier) => {
+    setLoadingTier(tier);
+    setTierError(null);
+
+    try {
+      const response = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "subscription", tier }),
+      });
+
+      const data = await response.json();
+
+      if (data.ok && data.url) {
+        window.location.href = data.url;
+      } else {
+        setTierError(tier);
+        setLoadingTier(null);
+      }
+    } catch {
+      setTierError(tier);
+      setLoadingTier(null);
+    }
   };
 
-  const handleGiveOnceClick = () => {
-    setGiveOnceMessage(true);
-    setTimeout(() => setGiveOnceMessage(false), 3000);
+  const handleGiveOnceClick = async (amount: number) => {
+    setLoadingAmount(amount);
+    setAmountError(null);
+
+    try {
+      const response = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "onetime", amount }),
+      });
+
+      const data = await response.json();
+
+      if (data.ok && data.url) {
+        window.location.href = data.url;
+      } else {
+        setAmountError(amount);
+        setLoadingAmount(null);
+      }
+    } catch {
+      setAmountError(amount);
+      setLoadingAmount(null);
+    }
   };
 
   return (
@@ -89,16 +146,16 @@ export default function Support() {
 
         {/* Tier Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {tiers.map((tier) => (
-            <Card key={tier.name}>
+          {tiers.map((tierData) => (
+            <Card key={tierData.name}>
               <h3 className="text-xl font-heading font-bold text-[var(--foreground)] mb-1">
-                {tier.name}
+                {tierData.name}
               </h3>
               <p className="text-[var(--accent)] font-semibold mb-4">
-                {tier.price}
+                {tierData.price}
               </p>
               <ul className="space-y-2 text-[var(--foreground)]/70 text-sm mb-6">
-                {tier.perks.map((perk, index) => (
+                {tierData.perks.map((perk, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <span className="text-[var(--accent)]">•</span>
                     <span>{perk}</span>
@@ -106,15 +163,16 @@ export default function Support() {
                 ))}
               </ul>
               <Button
-                onClick={() => handleTierClick(tier.name)}
+                onClick={() => handleTierClick(tierData.tier)}
                 variant="primary"
-                className="w-full"
+                className={`w-full ${loadingTier === tierData.tier ? "opacity-70 cursor-not-allowed" : ""}`}
+                disabled={loadingTier === tierData.tier}
               >
-                {tier.buttonText}
+                {loadingTier === tierData.tier ? "Loading..." : tierData.buttonText}
               </Button>
-              {tierMessages[tier.name] && (
-                <p className="text-[var(--accent)] text-sm mt-3 text-center">
-                  Partner sign-up coming soon.
+              {tierError === tierData.tier && (
+                <p className="text-red-400 text-sm mt-3 text-center">
+                  Something went wrong. Please try again.
                 </p>
               )}
             </Card>
@@ -126,19 +184,21 @@ export default function Support() {
       <section className="mb-12 md:mb-16">
         <SectionHeader title="Give once" className="mb-6" />
         <div className="flex flex-wrap gap-3 mb-4">
-          {giveOnceAmounts.map((amount) => (
+          {giveOnceAmounts.map(({ label, amount }) => (
             <Button
               key={amount}
-              onClick={handleGiveOnceClick}
+              onClick={() => handleGiveOnceClick(amount)}
               variant="secondary"
+              className={loadingAmount === amount ? "opacity-70 cursor-not-allowed" : ""}
+              disabled={loadingAmount === amount}
             >
-              {amount}
+              {loadingAmount === amount ? "..." : label}
             </Button>
           ))}
         </div>
-        {giveOnceMessage && (
-          <p className="text-[var(--accent)] text-sm">
-            Giving options coming soon.
+        {amountError !== null && (
+          <p className="text-red-400 text-sm">
+            Something went wrong. Please try again.
           </p>
         )}
       </section>

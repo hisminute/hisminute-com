@@ -7,6 +7,7 @@ interface ButtonProps {
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
+  disabled?: boolean;
 }
 
 export function Button({
@@ -16,6 +17,7 @@ export function Button({
   onClick,
   children,
   className = "",
+  disabled = false,
 }: ButtonProps) {
   const baseStyles =
     "inline-block w-full sm:w-auto px-8 py-3 font-semibold rounded-lg transition-colors text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
@@ -39,7 +41,8 @@ export function Button({
     <button
       type={type}
       onClick={onClick}
-      className={combinedStyles + " cursor-pointer"}
+      disabled={disabled}
+      className={combinedStyles + " cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"}
     >
       {children}
     </button>
