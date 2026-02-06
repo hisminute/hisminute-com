@@ -26,17 +26,17 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: "His Minute",
-  description: "One verse. One minute. Jesus changes everything.",
+  description: "Find clarity, peace, and purpose through Jesus Christ.",
   openGraph: {
     title: "His Minute",
-    description: "One verse. One minute. Jesus changes everything.",
+    description: "Find clarity, peace, and purpose through Jesus Christ.",
     images: ["/og.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "His Minute",
-    description: "One verse. One minute. Jesus changes everything.",
+    description: "Find clarity, peace, and purpose through Jesus Christ.",
     images: ["/og.png"],
   },
 };
@@ -51,7 +51,7 @@ function AnnouncementStrip() {
             href="/start-here"
             className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm px-1 py-0.5 -mx-1"
           >
-            Start at Start Here
+            Start Here
           </Link>
           . Need prayer?{" "}
           <Link

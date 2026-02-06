@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 
 const outcomeItems = [
   { title: "Clarity", description: "Know what matters" },
-  { title: "Peace", description: "Stand on the truth" },
+  { title: "Peace", description: "Stand on truth" },
   { title: "Purpose", description: "Live with intention" },
 ];
 
@@ -87,7 +86,7 @@ export default function Home() {
       {/* Latest Videos Section — with distinct background panel */}
       <section className="py-12 md:py-16 bg-[#0a1628]">
         <Container>
-          <SectionHeader title="Latest videos" className="mb-8" />
+          <SectionHeader title="Latest videos" className="mb-8 text-center" />
           <div className="space-y-4 mb-6">
             {videos.map((video, index) => (
               <Card key={index} className="p-5 bg-white/[0.02]">
@@ -120,13 +119,22 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Trust Line */}
+      {/* Support Ask Section */}
       <section className="py-12 md:py-16 border-t border-white/10">
         <Container>
-          <Card className="text-center py-8 md:py-10">
-            <p className="text-[var(--accent)] font-heading font-medium text-lg md:text-xl">
+          <Card className="max-w-2xl mx-auto text-center">
+            <h2 className="text-xl md:text-2xl font-heading font-semibold text-[var(--foreground)] mb-4">
+              Will you help us share Jesus today?
+            </h2>
+            <p className="text-[var(--foreground)]/80 mb-6 leading-relaxed">
+              Your support helps us reach more people with the love of Jesus Christ.
+            </p>
+            <p className="text-[var(--accent)] font-medium text-sm mb-6">
               The Word of God is free. Your support is optional.
             </p>
+            <Button href="/support" variant="primary">
+              Support His Minute
+            </Button>
           </Card>
         </Container>
       </section>
