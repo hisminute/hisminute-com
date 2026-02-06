@@ -9,76 +9,88 @@ import { videos } from "@/content/videos";
 
 export const metadata: Metadata = {
   title: "His Minute",
-  description: "One verse. One minute. Jesus changes everything.",
+  description: "Find clarity, peace, and purpose through Jesus Christ.",
 };
+
+const outcomeItems = [
+  { title: "Clarity", description: "Know what matters" },
+  { title: "Peace", description: "Stand on the truth" },
+  { title: "Purpose", description: "Live with intention" },
+];
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="py-12 md:py-20 lg:py-24">
+      {/* Hero Section — with subtle gradient panel */}
+      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+        {/* Hero gradient background panel */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(212, 175, 55, 0.06) 0%, rgba(212, 175, 55, 0.02) 40%, transparent 100%)",
+          }}
+        />
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left: Text + CTAs */}
-            <div className="text-center lg:text-left">
-              {/* Badge */}
-              <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-[var(--accent)] border border-[var(--accent)]/50 rounded-full bg-[var(--accent)]/10">
-                TODO_COPY_HOME_BADGE
-              </span>
+          <div className="max-w-3xl mx-auto text-center">
+            {/* Slogan as supporting badge }
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-[var(--accent)] border border-[var(--accent)]/40 rounded-full bg-[var(--accent)]/10">
+              One verse. One minute. Jesus changes everything.
+            </span>
+            { Slogan as supporting badge */}
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[var(--foreground)] mb-6 leading-tight">
-                One verse. One minute. Jesus changes everything.
-              </h1>
-              <p className="text-lg md:text-xl text-[var(--foreground)]/80 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Daily Scripture you can understand and live today — meaning + one step.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <Button href="/start-here" variant="primary">
-                  Start Here
-                </Button>
-                <Button href="/prayer" variant="secondary">
-                  Request Prayer
-                </Button>
-              </div>
-            </div>
+            {/* Mission statement as H1 */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-[var(--foreground)] mb-6 leading-tight">
+              Find clarity, peace, and purpose through Jesus Christ.
+            </h1>
 
-            {/* Right: Feature Card with "What to expect" */}
-            <div className="lg:mt-8">
-              <Card>
-                <h2 className="text-xl md:text-2xl font-heading font-semibold text-[var(--foreground)] mb-6">
-                  What to expect
-                </h2>
-                <ul className="space-y-4 text-[var(--foreground)]/80 leading-relaxed">
-                  <li className="flex items-start gap-3">
-                    <span className="text-[var(--accent)] text-lg">•</span>
-                    <span>One verse (read aloud)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[var(--accent)] text-lg">•</span>
-                    <span>Simple meaning (plain language)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[var(--accent)] text-lg">•</span>
-                    <span>One step for today</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[var(--accent)] text-lg">•</span>
-                    <span>Invitation to Jesus</span>
-                  </li>
-                </ul>
-              </Card>
+            <p className="text-lg md:text-xl text-[var(--foreground)]/80 mb-10 max-w-xl mx-auto leading-relaxed">
+              Real hope for real life, rooted in Scripture, and focused on Jesus.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button href="/start-here" variant="primary">
+                Start Here
+              </Button>
+              <Button href="/prayer" variant="secondary">
+                Request Prayer
+              </Button>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Latest Videos Section */}
-      <section className="py-12 md:py-16 border-t border-white/10">
+      {/* Outcomes Section — individual cards */}
+      <section className="py-12 md:py-16">
+        <Container>
+          <SectionHeader title="What Jesus Offers" className="mb-8 text-center" />
+          <div className="grid grid-cols-3 gap-4 md:gap-6">
+            {outcomeItems.map((item, index) => (
+              <div
+                key={index}
+                className="relative bg-white/[0.04] border border-white/10 rounded-xl p-5 md:p-6"
+              >
+                {/* Gold accent top border */}
+                <div className="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent" />
+                <h3 className="text-[var(--foreground)] font-semibold mb-1 text-center text-lg">
+                  {item.title}
+                </h3>
+                <p className="text-[var(--foreground)]/60 text-center text-md">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Latest Videos Section — with distinct background panel */}
+      <section className="py-12 md:py-16 bg-[#0a1628]">
         <Container>
           <SectionHeader title="Latest videos" className="mb-8" />
           <div className="space-y-4 mb-6">
             {videos.map((video, index) => (
-              <Card key={index} className="p-5">
+              <Card key={index} className="p-5 bg-white/[0.02]">
                 <p className="text-[var(--foreground)] font-medium">{video.title}</p>
                 <p className="text-[var(--foreground)]/50 text-sm">{video.platform}</p>
                 {video.url === null && (
@@ -93,45 +105,15 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Take Your Next Step Section */}
-      <section className="py-16 md:py-20 border-t border-white/10 bg-white/[0.02]">
-        <Container>
-          <SectionHeader title="Take your next step" className="mb-6" />
-          <p className="text-[var(--foreground)]/80 mb-2 leading-relaxed max-w-prose">
-            Start here if you're new to Jesus (or coming back).
-          </p>
-          <p className="text-[var(--foreground)]/80 mb-8 leading-relaxed max-w-prose">
-            Need prayer? We're here for you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-6">
-            <Button href="/start-here" variant="primary">
-              Start Here
-            </Button>
-            <Button href="/prayer" variant="secondary">
-              Request Prayer
-            </Button>
-          </div>
-          <p className="text-sm text-[var(--foreground)]/60">
-            Optional support:{" "}
-            <Link
-              href="/support"
-              className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
-            >
-              Support His Minute
-            </Link>
-          </p>
-        </Container>
-      </section>
-
       {/* Email Signup Section */}
-      <section className="py-12 md:py-16 border-t border-white/10">
+      <section className="py-12 md:py-16 bg-white/[0.02]">
         <Container>
           <Card className="max-w-xl mx-auto text-center">
             <h2 className="text-xl md:text-2xl font-heading font-semibold text-[var(--foreground)] mb-4">
-              Get the daily verse
+              Get hope and encouragement
             </h2>
             <p className="text-[var(--foreground)]/80 mb-6 leading-relaxed">
-              Get a simple daily email with the verse and link.
+              A simple email to start your day with Jesus.
             </p>
             <EmailSignup />
           </Card>
@@ -143,7 +125,7 @@ export default function Home() {
         <Container>
           <Card className="text-center py-8 md:py-10">
             <p className="text-[var(--accent)] font-heading font-medium text-lg md:text-xl">
-              Jesus is free. We'll never gate the message behind giving.
+              The Word of God is free. Your support is optional.
             </p>
           </Card>
         </Container>
