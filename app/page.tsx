@@ -3,7 +3,6 @@ import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/Button";
-import { EmailSignup } from "@/components/EmailSignup";
 import { videos } from "@/content/videos";
 
 export const metadata: Metadata = {
@@ -101,21 +100,6 @@ export default function Home() {
           <p className="text-[var(--foreground)]/60">
             Videos coming soon. Follow @hisminute on TikTok, Instagram, YouTube, and X.
           </p>
-        </Container>
-      </section>
-
-      {/* Email Signup Section */}
-      <section className="py-12 md:py-16 bg-white/[0.02]">
-        <Container>
-          <Card className="max-w-xl mx-auto text-center">
-            <h2 className="text-xl md:text-2xl font-heading font-semibold text-[var(--foreground)] mb-4">
-              Get hope and encouragement
-            </h2>
-            <p className="text-[var(--foreground)]/80 mb-6 leading-relaxed">
-              A simple email to start your day with Jesus.
-            </p>
-            <EmailSignup />
-          </Card>
         </Container>
       </section>
 
