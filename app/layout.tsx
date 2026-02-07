@@ -102,10 +102,10 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-white/10 mt-auto">
+    <footer className="w-full border-t border-white/10 mt-auto bg-[#00224B]">
       <Container className="py-12 md:py-16">
         <p className="text-center text-[var(--accent)] font-heading font-medium text-lg mb-4">
-          One verse. One minute. Jesus changes everything.
+          Find clarity, peace, and purpose through Jesus Christ.
         </p>
         <p className="text-center text-[var(--foreground)]/60 text-sm mb-6">@hisminute</p>
         <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm mb-6">

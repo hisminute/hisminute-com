@@ -129,10 +129,7 @@ export default function Home() {
             <p className="text-[var(--foreground)]/80 mb-6 leading-relaxed">
               Your support helps us reach more people with the love of Jesus Christ.
             </p>
-            <p className="text-[var(--accent)] font-medium text-sm mb-6">
-              The Word of God is free. Your support is optional.
-            </p>
-            <Button href="/support" variant="primary">
+            <Button href="/support" variant="primary" className="mb-6">
               Support His Minute
             </Button>
           </Card>
