@@ -28,22 +28,22 @@ const tiers: Array<{
     ],
   },
   {
-    name: "Growth Partner",
+    name: "Encouragement Partner",
     tier: "encouragement",
     price: "$15/month",
-    buttonText: "Become a Growth Partner",
+    buttonText: "Become an Encouragement Partner",
     perks: [
       "Everything in Hope Partner",
       "Monthly Verse Card Pack (phone wallpapers + printable)",
     ],
   },
   {
-    name: "Reach Partner",
+    name: "Outreach Partner",
     tier: "outreach",
     price: "$35/month",
-    buttonText: "Become a Reach Partner",
+    buttonText: "Become an Outreach Partner",
     perks: [
-      "Everything in Growth Partner",
+      "Everything in Encouragement Partner",
       "Monthly Behind-the-Scenes (unlisted: why these verses / encouragement for the week)",
     ],
   },
@@ -53,7 +53,7 @@ const tiers: Array<{
     price: "$100/month",
     buttonText: "Become a Legacy Partner",
     perks: [
-      "Everything in Reach Partner",
+      "Everything in Outreach Partner",
       "Quarterly Prayer + Encouragement Night (unlisted)",
       "Optional name listing on a Thank You page (opt-in)",
     ],
