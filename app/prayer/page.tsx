@@ -83,10 +83,21 @@ export default function Prayer() {
       <section className="mb-8">
         <Card>
           {status === "success" ? (
-            <div className="bg-[var(--accent)]/20 border border-[var(--accent)] rounded-lg p-6 text-center">
-              <p className="text-[var(--foreground)] font-medium">
-                Thanks. We received your request.{refCode ? ` (Ref: ${refCode})` : ""}
+            <div className="bg-[var(--accent)]/20 border border-[var(--accent)] rounded-lg p-6 text-center space-y-4">
+              <p className="text-[var(--foreground)] font-medium leading-relaxed">
+                Thank you for reaching out. Your request has been received, and we're praying for you.
               </p>
+              <p className="text-[var(--foreground)]/80 leading-relaxed">
+                May God strengthen you and steady your heart today.
+              </p>
+              <p className="text-[var(--foreground)]/90 italic leading-relaxed">
+                "The Lord is near to the brokenhearted and saves the crushed in spirit." (Psalm 34:18, ESV)
+              </p>
+              {refCode && (
+                <p className="text-[var(--foreground)]/60 text-sm pt-2">
+                  Reference: {refCode}
+                </p>
+              )}
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
