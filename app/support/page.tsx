@@ -210,7 +210,7 @@ export default function Support() {
       <section className="mb-12 md:mb-16">
         <Card className="text-center py-8">
           <p className="text-[var(--accent)] font-heading font-medium text-lg">
-            Jesus is free. Your support is optional and helps us share Jesus with more people.
+            Your support is optional and helps us share Jesus with more people.
           </p>
         </Card>
       </section>
