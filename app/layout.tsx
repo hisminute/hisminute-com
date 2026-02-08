@@ -114,7 +114,6 @@ function Footer() {
         <p className="text-center text-[var(--accent)] font-heading font-medium text-lg mb-4">
           Find clarity, peace, and purpose through Jesus Christ.
         </p>
-        <p className="text-center text-[var(--foreground)]/60 text-sm mb-6">@hisminute</p>
         <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm mb-6">
           <li>
             <Link
@@ -163,6 +162,58 @@ function Footer() {
             >
               Contact
             </Link>
+          </li>
+        </ul>
+        <ul className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-sm mb-6">
+          <li>
+            <a
+              href="https://www.youtube.com/@HisMinute"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-1 py-1"
+            >
+              YouTube
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/hisminute/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-1 py-1"
+            >
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.tiktok.com/@hisminute"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-1 py-1"
+            >
+              TikTok
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.facebook.com/hisminute"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-1 py-1"
+            >
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://x.com/HisMinute"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-1 py-1"
+            >
+              X
+            </a>
           </li>
         </ul>
         <p className="text-center text-[var(--foreground)]/40 text-xs">

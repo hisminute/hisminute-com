@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Support — His Minute",
-  description: "One verse. One minute. Jesus changes everything.",
+  description: "Find clarity, peace, and purpose through Jesus Christ.",
 };
 
 export default function SupportLayout({
