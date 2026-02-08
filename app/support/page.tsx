@@ -180,28 +180,6 @@ export default function Support() {
         </div>
       </section>
 
-      {/* Give Once */}
-      <section className="mb-12 md:mb-16">
-        <SectionHeader title="Give once" className="mb-6" />
-        <div className="flex flex-wrap gap-3 mb-4">
-          {giveOnceAmounts.map(({ label, amount }) => (
-            <Button
-              key={amount}
-              onClick={() => handleGiveOnceClick(amount)}
-              variant="secondary"
-              className={loadingAmount === amount ? "opacity-70 cursor-not-allowed" : ""}
-              disabled={loadingAmount === amount}
-            >
-              {loadingAmount === amount ? "..." : label}
-            </Button>
-          ))}
-        </div>
-        {amountError !== null && (
-          <p className="text-red-400 text-sm">
-            Something went wrong. Please try again.
-          </p>
-        )}
-      </section>
 
       {/* 4) What Your Support Helps Fund */}
       <section className="mb-12 md:mb-16">
