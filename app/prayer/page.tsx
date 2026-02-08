@@ -69,16 +69,13 @@ export default function Prayer() {
       {/* Header */}
       <section className="mb-10 md:mb-12">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[var(--foreground)] mb-4">
-          Request prayer.
+          You are not alone.
         </h1>
-        <p className="text-lg md:text-xl text-[var(--foreground)]/80 mb-6 leading-relaxed max-w-prose">
-          You're not alone. We'll pray for you.
+        <p className="text-xl md:text-2xl text-[var(--foreground)]/80 mb-6 leading-relaxed max-w-prose">
+        Request prayer and we will pray for you.
         </p>
         <p className="text-[var(--foreground)]/60 text-sm mb-2">
-          We keep requests private and never share without permission.
-        </p>
-        <p className="text-[var(--foreground)]/60 text-sm">
-          Please don't include extremely sensitive personal information.
+          We keep all prayer requests private and never share without permission.
         </p>
       </section>
 
@@ -247,14 +244,6 @@ export default function Prayer() {
         </Card>
       </section>
 
-      {/* Safety Note */}
-      <section>
-        <p className="text-[var(--foreground)]/40 text-xs">
-          If you are in immediate danger, contact your local emergency services.
-        </p>
-      </section>
-
-      <CtaStrip />
     </Container>
   );
 }

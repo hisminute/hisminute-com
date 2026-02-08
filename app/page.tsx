@@ -31,11 +31,6 @@ export default function Home() {
         />
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            {/* Slogan as supporting badge }
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-[var(--accent)] border border-[var(--accent)]/40 rounded-full bg-[var(--accent)]/10">
-              One verse. One minute. Jesus changes everything.
-            </span>
-            { Slogan as supporting badge */}
 
             {/* Mission statement as H1 */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-[var(--foreground)] mb-6 leading-tight">
@@ -48,7 +43,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href="/start-here" variant="primary">
-                Start Here
+                Find Hope
               </Button>
               <Button href="/prayer" variant="secondary">
                 Request Prayer

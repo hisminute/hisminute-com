@@ -88,9 +88,6 @@ function Header() {
             <li>
               <NavLink href="/support">Support</NavLink>
             </li>
-            <li>
-              <NavLink href="/archive">Archive</NavLink>
-            </li>
           </ul>
         </nav>
       </Container>

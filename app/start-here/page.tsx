@@ -5,8 +5,8 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Start Here — His Minute",
-  description: "You're not alone. Real hope is found in Jesus.",
+  title: "Start — His Minute",
+  description: "This is your time. Real hope is found in Jesus.",
 };
 
 const outcomeItems = [
@@ -23,10 +23,10 @@ export default function StartHere() {
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-[var(--foreground)] mb-6 leading-tight">
-              Start here
+              Start your journey with Jesus
             </h1>
-            <p className="text-lg md:text-xl text-[var(--foreground)]/80 mb-10 max-w-xl mx-auto leading-relaxed">
-              You're not alone. Real hope is found in Jesus.
+            <p className="text-xl md:text-2xl text-[var(--foreground)]/80 mb-10 max-w-xl mx-auto leading-relaxed">
+              This is your time. Real hope is found in Jesus.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href="#prayer" variant="primary">
@@ -43,7 +43,7 @@ export default function StartHere() {
       {/* What Jesus Offers Section */}
       <section className="py-12 md:py-16 bg-white/[0.02]">
         <Container>
-          <SectionHeader title="What Jesus offers" className="mb-8 text-center" centered />
+          <SectionHeader title="What Jesus Offers" className="mb-8 text-center" centered />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
             {outcomeItems.map((item, index) => (
               <div
@@ -68,7 +68,7 @@ export default function StartHere() {
       <section className="py-12 md:py-16">
         <Container>
           <div className="max-w-2xl mx-auto">
-            <SectionHeader title="The good news" className="mb-8 text-center" centered />
+            <SectionHeader title="The Good News" className="mb-8 text-center" centered />
             <div className="space-y-6 text-[var(--foreground)]/80 leading-relaxed text-lg">
               <p>
                 God made you and loves you deeply.  
@@ -91,18 +91,15 @@ export default function StartHere() {
           <div className="max-w-2xl mx-auto">
             <SectionHeader title="A simple prayer" className="mb-8 text-center" centered />
             <Card className="border-l-4 border-l-[var(--accent)]">
-              <p className="text-[var(--foreground)]/90 italic text-lg leading-relaxed whitespace-pre-line">
+              <p className="text-[var(--foreground)]/90 italic text-2xl leading-12 whitespace-pre-line">
               {/* The His Minute Prayer: Jesus, I need You. I trust in You. Forgive me, change my heart, and lead my life. Amen  */}
                 Jesus, {"\n"}
-                I need You. {"\n"}
+                I need You. 
                 I trust in You. {"\n"}
                 Forgive me, change my heart, and lead my life. {"\n"}
-                Amen. {"\n"}
+                Amen {"\n"}
               </p>
             </Card>
-            <p className="text-center text-[var(--foreground)]/60 mt-6 text-sm">
-              If you prayed this prayer, we'd love to celebrate with you and help you take your next step.
-            </p>
           </div>
         </Container>
       </section>
@@ -115,12 +112,12 @@ export default function StartHere() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href="/prayer" variant="primary">
                 Request Prayer
+              </Button>              
+              <Button href="/" variant="secondary">
+                Watch the latest
               </Button>
               <Button href="/support" variant="secondary">
                 Support His Minute
-              </Button>
-              <Button href="/" variant="secondary">
-                Watch the latest
               </Button>
             </div>
           </div>
