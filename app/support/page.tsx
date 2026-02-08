@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -237,12 +238,46 @@ export default function Support() {
       </section>
 
       {/* 5) No-Pressure Line (once, after bullets) */}
-      <section className="mb-0">
+      <section className="mb-12 md:mb-16">
         <Card className="text-center py-8">
           <p className="text-[var(--accent)] font-heading font-medium text-lg">
             Jesus is free. We'll never gate the message behind giving.
           </p>
         </Card>
+      </section>
+
+      {/* 6) Policies */}
+      <section className="mb-0">
+        <SectionHeader title="Policies" className="mb-4" />
+        <p className="text-[var(--foreground)]/70 leading-relaxed mb-4">
+          For details on subscriptions, refunds, and privacy, please see the pages below.
+        </p>
+        <ul className="flex flex-wrap gap-4 text-sm">
+          <li>
+            <Link
+              href="/privacy"
+              className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+            >
+              Privacy
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/terms"
+              className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+            >
+              Terms
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
       </section>
 
       <CtaStrip />

@@ -90,7 +90,7 @@ function Header() {
           </Link>
           <ul className="flex flex-wrap items-center gap-1 text-sm md:gap-2">
             <li>
-              <NavLink href="/start-here">Find hope</NavLink>
+              <NavLink href="/start-here">Find Hope</NavLink>
             </li>
             <li>
               <NavLink href="/prayer">Prayer</NavLink>
@@ -121,7 +121,7 @@ function Footer() {
               href="/start-here"
               className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
             >
-              Start Here
+              Find Hope
             </Link>
           </li>
           <li>
@@ -138,6 +138,30 @@ function Footer() {
               className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
             >
               Support
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/privacy"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
+            >
+              Privacy
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/terms"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
+            >
+              Terms
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm px-2 py-1 -mx-2"
+            >
+              Contact
             </Link>
           </li>
         </ul>

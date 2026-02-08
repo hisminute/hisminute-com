@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-02-24.acacia",
-});
-
 type SubscriptionTier = "hope" | "encouragement" | "outreach" | "legacy";
 
 interface CheckoutRequestBody {
@@ -13,11 +9,11 @@ interface CheckoutRequestBody {
   amount?: number;
 }
 
-const TIER_PRICE_MAP: Record<SubscriptionTier, string | undefined> = {
-  hope: process.env.STRIPE_PRICE_HOPE_MONTHLY,
-  encouragement: process.env.STRIPE_PRICE_ENCOURAGEMENT_MONTHLY,
-  outreach: process.env.STRIPE_PRICE_OUTREACH_MONTHLY,
-  legacy: process.env.STRIPE_PRICE_LEGACY_MONTHLY,
+const TIER_ENV_MAP: Record<SubscriptionTier, string> = {
+  hope: "STRIPE_PRICE_HOPE_MONTHLY",
+  encouragement: "STRIPE_PRICE_ENCOURAGEMENT_MONTHLY",
+  outreach: "STRIPE_PRICE_OUTREACH_MONTHLY",
+  legacy: "STRIPE_PRICE_LEGACY_MONTHLY",
 };
 
 const ALLOWED_AMOUNTS = [10, 25, 50, 100];
@@ -34,6 +30,20 @@ function getOrigin(request: NextRequest): string {
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate STRIPE_SECRET_KEY exists
+    const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+    if (!stripeSecretKey) {
+      return NextResponse.json(
+        { ok: false, error: "STRIPE_SECRET_KEY missing" },
+        { status: 500 }
+      );
+    }
+
+    // Initialize Stripe lazily inside handler
+    const stripe = new Stripe(stripeSecretKey, {
+      apiVersion: "2025-02-24.acacia",
+    });
+
     const body: CheckoutRequestBody = await request.json();
     const { type, tier, amount } = body;
 
@@ -41,18 +51,20 @@ export async function POST(request: NextRequest) {
 
     // Validate subscription request
     if (type === "subscription") {
-      if (!tier || !TIER_PRICE_MAP[tier]) {
+      if (!tier || !(tier in TIER_ENV_MAP)) {
         return NextResponse.json(
           { ok: false, error: "INVALID_TIER" },
           { status: 400 }
         );
       }
 
-      const priceId = TIER_PRICE_MAP[tier];
+      const envVarName = TIER_ENV_MAP[tier];
+      const priceId = process.env[envVarName];
+      
       if (!priceId) {
-        console.error("stripe_checkout_error: Price ID not configured for tier", tier);
+        console.error("stripe_checkout_error: Missing env var", envVarName);
         return NextResponse.json(
-          { ok: false, error: "CONFIG_ERROR" },
+          { ok: false, error: `Missing ${envVarName}` },
           { status: 500 }
         );
       }
