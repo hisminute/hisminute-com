@@ -138,7 +138,7 @@ export default function Support() {
 
       {/* 2) His Minute Hope Partners (tiers + give once) */}
       <section className="mb-12 md:mb-16">
-        <SectionHeader title="His Minute Hope Partners" className="mb-6" />
+        <SectionHeader title="Become a His Minute Hope Partner" className="mb-6" />
         <p className="text-[var(--foreground)]/80 leading-relaxed mb-10 max-w-prose">
           Hope Partners help us share uplifting Scripture encouragement every day
           and reach more people with the hope of Jesus. Support is optional, and
@@ -202,14 +202,6 @@ export default function Support() {
             Something went wrong. Please try again.
           </p>
         )}
-      </section>
-
-      {/* 3) Encouragement paragraph */}
-      <section className="mb-12 md:mb-16">
-        <p className="text-[var(--foreground)]/70 leading-relaxed max-w-prose">
-          If His Minute encourages you, optional support helps us produce and
-          distribute more daily Scripture encouragement.
-        </p>
       </section>
 
       {/* 4) What Your Support Helps Fund */}
@@ -279,8 +271,6 @@ export default function Support() {
           </li>
         </ul>
       </section>
-
-      <CtaStrip />
     </Container>
   );
 }
