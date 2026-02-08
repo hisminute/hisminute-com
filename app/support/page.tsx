@@ -131,7 +131,7 @@ export default function Support() {
           Support His Minute
         </h1>
         <p className="text-lg md:text-xl text-[var(--foreground)]/80 leading-relaxed max-w-prose">
-          Support is optional — but it helps us reach more people with uplifting,
+          Support is optional and helps us reach more people with uplifting,
           Christ-centered encouragement.
         </p>
       </section>
@@ -141,8 +141,7 @@ export default function Support() {
         <SectionHeader title="Become a His Minute Hope Partner" className="mb-6" />
         <p className="text-[var(--foreground)]/80 leading-relaxed mb-10 max-w-prose">
           Hope Partners help us share uplifting Scripture encouragement every day
-          and reach more people with the hope of Jesus. Support is optional, and
-          the message will always be free.
+          and reach more people with the hope of Jesus.
         </p>
 
         {/* Tier Cards */}
