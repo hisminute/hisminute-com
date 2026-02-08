@@ -19,7 +19,7 @@ export function CtaStrip() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-4">
             <Button href="/start-here" variant="primary">
-              Start Here
+              Find hope
             </Button>
             <Button href="/prayer" variant="secondary">
               Request Prayer

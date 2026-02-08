@@ -17,27 +17,37 @@ const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
 });
 
-// Set NEXT_PUBLIC_SITE_URL in Vercel environment variables to https://hisminute.com
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-
-// TODO: Replace public/og.png with a proper 1200x630 branded PNG before launch.
-// A reference design exists at public/og.svg with the correct layout and branding.
+// IMPORTANT: Set NEXT_PUBLIC_SITE_URL in Vercel environment variables to https://hisminute.com
+// This ensures Open Graph images and metadata resolve correctly in production.
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  metadataBase: new URL(siteUrl),
   title: "His Minute",
   description: "Find clarity, peace, and purpose through Jesus Christ.",
   openGraph: {
     title: "His Minute",
     description: "Find clarity, peace, and purpose through Jesus Christ.",
-    images: ["/og.png"],
+    images: [
+      {
+        url: "/hmlogo.png",
+        width: 2048,
+        height: 2048,
+        alt: "His Minute",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "His Minute",
     description: "Find clarity, peace, and purpose through Jesus Christ.",
-    images: ["/og.png"],
+    images: ["/hmlogo.png"],
+  },
+  icons: {
+    icon: "/hmlogo.png",
+    apple: "/hmlogo.png",
+    shortcut: "/hmlogo.png",
   },
 };
 
@@ -80,7 +90,7 @@ function Header() {
           </Link>
           <ul className="flex flex-wrap items-center gap-1 text-sm md:gap-2">
             <li>
-              <NavLink href="/start-here">Start Here</NavLink>
+              <NavLink href="/start-here">Find hope</NavLink>
             </li>
             <li>
               <NavLink href="/prayer">Prayer</NavLink>

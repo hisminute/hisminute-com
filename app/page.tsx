@@ -78,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* Latest Videos Section — with distinct background panel */}
-      <section className="py-12 md:py-16 bg-[#0a1628]">
+      <section id="latest-videos" className="py-12 md:py-16 bg-[#0a1628]">
         <Container>
           <SectionHeader title="Latest videos" className="mb-8 text-center" />
           <div className="space-y-4 mb-6">
@@ -92,9 +92,6 @@ export default function Home() {
               </Card>
             ))}
           </div>
-          <p className="text-[var(--foreground)]/60">
-            Videos coming soon. Follow @hisminute on TikTok, Instagram, YouTube, and X.
-          </p>
         </Container>
       </section>
 
