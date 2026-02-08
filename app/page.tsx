@@ -95,7 +95,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Support Ask Section */}
+      {/* Support Ask Section - Will you help us share Jesus today? */}
       <section className="py-12 md:py-16 border-t border-white/10">
         <Container>
           <Card className="max-w-2xl mx-auto text-center">
