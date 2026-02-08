@@ -138,10 +138,6 @@ export default function Support() {
       {/* 2) His Minute Hope Partners (tiers + give once) */}
       <section className="mb-12 md:mb-16">
         <SectionHeader title="Become a Partner" className="mb-6" />
-        <p className="text-[var(--foreground)]/80 leading-relaxed mb-10 max-w-prose">
-          Hope Partners help us share uplifting Scripture encouragement every day
-          and reach more people with the hope of Jesus.
-        </p>
 
         {/* Tier Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
