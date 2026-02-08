@@ -131,8 +131,7 @@ export default function Support() {
           Support His Minute
         </h1>
         <p className="text-lg md:text-xl text-[var(--foreground)]/80 leading-relaxed max-w-prose">
-          Support is optional and helps us reach more people with uplifting,
-          Christ-centered encouragement.
+          Help us reach more people with uplifting, Christ-centered encouragement.
         </p>
       </section>
 
