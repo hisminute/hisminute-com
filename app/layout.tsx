@@ -17,15 +17,24 @@ const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
 });
 
-// IMPORTANT: Set NEXT_PUBLIC_SITE_URL in Vercel environment variables to https://hisminute.com
+// IMPORTANT: Set NEXT_PUBLIC_SITE_URL in Vercel environment variables to https://www.hisminute.com
 // This ensures Open Graph images and metadata resolve correctly in production.
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.hisminute.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "His Minute",
+  title: {
+    default: "His Minute",
+    template: "His Minute | %s",
+  },
   description: "Find clarity, peace, and purpose through Jesus Christ.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
+    type: "website",
+    url: "/",
     title: "His Minute",
     description: "Find clarity, peace, and purpose through Jesus Christ.",
     images: [
@@ -36,7 +45,6 @@ export const metadata: Metadata = {
         alt: "His Minute",
       },
     ],
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
@@ -224,6 +232,29 @@ function Footer() {
   );
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "His Minute",
+      url: siteUrl,
+      sameAs: [
+        "https://www.youtube.com/@HisMinute",
+        "https://www.instagram.com/hisminute/",
+        "https://www.tiktok.com/@hisminute",
+        "https://www.facebook.com/hisminute",
+        "https://x.com/HisMinute",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      name: "His Minute",
+      url: siteUrl,
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -234,6 +265,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${fraunces.variable} antialiased min-h-screen flex flex-col`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <AnnouncementStrip />
         <Header />
         <main className="flex-1">{children}</main>
