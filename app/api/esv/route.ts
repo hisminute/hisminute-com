@@ -109,18 +109,28 @@ function buildEsvUrl(reference: string, options: Record<string, unknown>): strin
 export async function POST(request: NextRequest) {
   try {
     // 1) Auth
-    const authHeader = request.headers.get("authorization");
-    const expectedKey = process.env.HM_PROXY_KEY;
-    if (!expectedKey) {
+    const expected = process.env.HM_PROXY_KEY;
+    if (!expected || expected.trim() === "") {
       return NextResponse.json(
-        { ok: false, error: "Unauthorized" },
-        { status: 401 }
+        { ok: false, error: "HM_PROXY_KEY not set" },
+        { status: 500 }
       );
     }
-    const token = authHeader?.startsWith("Bearer ")
-      ? authHeader.slice(7)
-      : null;
-    if (!token || token !== expectedKey) {
+
+    const auth = (request.headers.get("authorization") || "").trim();
+    const parts = auth.split(/\s+/);
+    const hasBearer =
+      parts.length >= 2 && parts[0].toLowerCase() === "bearer";
+    const token = hasBearer ? parts[1].trim() : "";
+
+    console.log("esv_auth_check", {
+      hasAuth: Boolean(auth),
+      authStartsWithBearer: auth.toLowerCase().startsWith("bearer"),
+      tokenLen: token ? token.length : 0,
+      expectedLen: expected.trim().length,
+    });
+
+    if (!token || token !== expected.trim()) {
       return NextResponse.json(
         { ok: false, error: "Unauthorized" },
         { status: 401 }
