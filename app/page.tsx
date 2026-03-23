@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -19,35 +20,43 @@ const outcomeItems = [
 export default function Home() {
   return (
     <>
-      {/* Hero Section — with subtle gradient panel */}
-      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-        {/* Hero gradient background panel */}
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(212, 175, 55, 0.06) 0%, rgba(212, 175, 55, 0.02) 40%, transparent 100%)",
-          }}
-        />
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
+      {/* Hero — photo with text on the open right; stacked below lg */}
+      <section className="relative overflow-hidden bg-[var(--background)] lg:min-h-[min(85vh,720px)]">
+        <div className="relative h-[min(42vh,300px)] sm:h-[min(44vh,340px)] md:h-[min(46vh,400px)] lg:absolute lg:inset-0 lg:h-auto lg:min-h-0">
+          <Image
+            src="/hero-01.png"
+            alt="A woman in a quiet, reflective moment."
+            fill
+            priority
+            className="object-cover object-[32%_center] sm:object-[28%_center] md:object-[22%_center] lg:object-[18%_center]"
+            sizes="100vw"
+          />
+          {/* Light right-side scrim on large screens only — keeps the left subject clear */}
+          <div
+            className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-[#0B1B3A]/45 via-[#0B1B3A]/08 to-transparent lg:block"
+            aria-hidden
+          />
+        </div>
 
-            {/* Mission statement as H1 */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-[var(--foreground)] mb-6 leading-tight">
-              Find clarity, peace, and purpose through Jesus Christ.
-            </h1>
+        <Container className="relative z-10 flex !max-w-6xl flex-col justify-center lg:min-h-[min(85vh,720px)] lg:py-16 xl:py-20">
+          <div className="mx-auto w-full max-w-3xl py-10 text-center sm:py-12 lg:mx-0 lg:ml-auto lg:mr-0 lg:max-w-xl lg:py-16 lg:pl-4 lg:pr-0 lg:text-left xl:max-w-2xl xl:pl-8">
+            <div className="lg:rounded-2xl lg:border lg:border-white/10 lg:bg-[#0B1B3A]/40 lg:px-8 lg:py-10 lg:shadow-[0_12px_48px_-16px_rgba(0,0,0,0.55)]">
+              <h1 className="mb-6 font-heading text-3xl font-bold leading-tight text-[var(--foreground)] [text-shadow:0_1px_2px_rgba(11,27,58,0.45),0_2px_16px_rgba(11,27,58,0.25)] md:text-4xl lg:text-5xl lg:[text-shadow:0_1px_2px_rgba(11,27,58,0.55),0_2px_28px_rgba(11,27,58,0.35)] xl:text-6xl">
+                Find clarity, peace, and purpose in Jesus Christ.
+              </h1>
 
-            <p className="text-lg md:text-xl text-[var(--foreground)]/80 mb-10 max-w-xl mx-auto leading-relaxed">
-              Real hope for real life, rooted in Scripture, and focused on Jesus.
-            </p>
+              <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-[var(--foreground)]/90 md:text-xl lg:mx-0 lg:mb-10 lg:max-w-lg lg:[text-shadow:0_1px_2px_rgba(11,27,58,0.45)]">
+                Real hope for real life, rooted in Scripture, and focused on Jesus.
+              </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/start-here" variant="primary">
-                Find Hope
-              </Button>
-              <Button href="/prayer" variant="secondary">
-                Request Prayer
-              </Button>
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+                <Button href="/start-here" variant="primary">
+                  Find Hope
+                </Button>
+                <Button href="/prayer" variant="secondary">
+                  Request Prayer
+                </Button>
+              </div>
             </div>
           </div>
         </Container>
