@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Image from "next/image";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
-import { CtaStrip } from "@/components/CtaStrip";
 
 type FormStatus = "idle" | "loading" | "success" | "error" | "rate_limit";
 
@@ -65,18 +65,32 @@ export default function Prayer() {
   const isLoading = status === "loading";
 
   return (
-    <Container className="py-12 md:py-20">
-      {/* Header */}
+    <Container className="!max-w-6xl py-12 md:py-20">
+      {/* Header + hero image */}
       <section className="mb-10 md:mb-12">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[var(--foreground)] mb-4">
-          You are not alone.
-        </h1>
-        <p className="text-xl md:text-2xl text-[var(--foreground)]/80 mb-6 leading-relaxed max-w-prose">
-        Request prayer and we will pray for you.
-        </p>
-        <p className="text-[var(--foreground)]/60 text-sm mb-2">
-          We keep all prayer requests private and never share without permission.
-        </p>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start md:gap-10 lg:gap-12">
+          <div className="text-center md:text-left pl-6 pt-6">
+            <h1 className="mb-4 font-heading text-3xl font-bold text-[var(--foreground)] md:text-4xl lg:text-5xl">
+              You are not alone.
+            </h1>
+            <p className="mx-auto mb-6 max-w-prose text-xl leading-relaxed text-[var(--foreground)]/80 md:mx-0 md:text-2xl">
+              Request prayer and we will pray for you.
+            </p>
+            <p className="text-md text-[var(--foreground)]/60 md:mb-0">
+              We keep all prayer requests private and never share without permission.
+            </p>
+          </div>
+          <div className="relative aspect-[1376/768] w-full overflow-hidden rounded-xl border border-white/10">
+            <Image
+              src="/prayer-hero-100.png"
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="(max-width: 767px) 100vw, 50vw"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Form */}
