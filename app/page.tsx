@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const outcomeItems = [
   { title: "Clarity", description: "Know what matters", image: "/clarity-100.png" },
   { title: "Peace", description: "Stand on truth", image: "/peace-104.png" },
-  { title: "Purpose", description: "Live with intention", image: "/purpose-101.png" },
+  { title: "Purpose", description: "Live with intention", image: "/purpose-104.png" },
 ];
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[var(--background)] lg:min-h-[min(85vh,720px)]">
         <div className="relative h-[min(42vh,300px)] sm:h-[min(44vh,340px)] md:h-[min(46vh,400px)] lg:absolute lg:inset-0 lg:h-auto lg:min-h-0">
           <Image
-            src="/hero-100.png"
+            src="/hero-113.png"
             alt="A woman in a quiet, reflective moment."
             fill
             priority

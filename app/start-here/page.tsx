@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/Container";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -19,22 +20,34 @@ export default function StartHere() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-16 md:py-24 lg:py-32">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-bold text-[var(--foreground)] mb-6 leading-tight">
-              Begin with Jesus
-            </h1>
-            <p className="text-xl md:text-2xl text-[var(--foreground)]/80 mb-10 max-w-xl mx-auto leading-relaxed">
-              Real hope is found in Jesus Christ.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="#prayer" variant="primary">
-                Pray now
-              </Button>
-              <Button href="/prayer" variant="secondary">
-                Request Prayer
-              </Button>
+      <section className="py-12 md:py-20 lg:py-28">
+        <Container className="!max-w-6xl">
+          <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-10 lg:gap-12">
+            <div className="text-center md:max-w-xl md:text-left lg:max-w-none">
+              <h1 className="mb-6 font-heading text-3xl font-bold leading-tight text-[var(--foreground)] md:text-4xl lg:text-5xl xl:text-6xl">
+                Begin with Jesus
+              </h1>
+              <p className="mx-auto mb-10 max-w-xl text-xl leading-relaxed text-[var(--foreground)]/80 md:mx-0 md:text-2xl">
+                Real hope is found in Jesus Christ.
+              </p>
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row md:justify-start">
+                <Button href="#prayer" variant="primary">
+                  Pray now
+                </Button>
+                <Button href="/prayer" variant="secondary">
+                  Request Prayer
+                </Button>
+              </div>
+            </div>
+            <div className="relative aspect-[1376/768] w-full overflow-hidden rounded-xl border border-white/10">
+              <Image
+                src="/start-hero-100.png"
+                alt=""
+                fill
+                className="object-cover object-center"
+                priority
+                sizes="(max-width: 767px) 100vw, 50vw"
+              />
             </div>
           </div>
         </Container>
