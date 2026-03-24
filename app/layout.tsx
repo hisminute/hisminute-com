@@ -92,7 +92,7 @@ function Header() {
         <nav className="flex flex-wrap items-center justify-between gap-2 py-1 md:py-1">
           <Link
             href="/"
-            className="text-xl font-heading font-semibold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm py-1"
+            className="text-xl font-heading font-bold text-[var(--foreground)] hover:text-[var(--accent)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] rounded-sm py-1"
           >
             His Minute
           </Link>

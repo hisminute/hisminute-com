@@ -8,13 +8,13 @@ import { videos } from "@/content/videos";
 
 export const metadata: Metadata = {
   title: "His Minute",
-  description: "Find clarity, peace, and purpose through Jesus Christ.",
+  description: "Find clarity, peace, and purpose in Jesus Christ.",
 };
 
 const outcomeItems = [
-  { title: "Clarity", description: "Know what matters" },
-  { title: "Peace", description: "Stand on truth" },
-  { title: "Purpose", description: "Live with intention" },
+  { title: "Clarity", description: "Know what matters", image: "/clarity-100.png" },
+  { title: "Peace", description: "Stand on truth", image: "/peace-104.png" },
+  { title: "Purpose", description: "Live with intention", image: "/purpose-101.png" },
 ];
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[var(--background)] lg:min-h-[min(85vh,720px)]">
         <div className="relative h-[min(42vh,300px)] sm:h-[min(44vh,340px)] md:h-[min(46vh,400px)] lg:absolute lg:inset-0 lg:h-auto lg:min-h-0">
           <Image
-            src="/hero-01.png"
+            src="/hero-100.png"
             alt="A woman in a quiet, reflective moment."
             fill
             priority
@@ -40,7 +40,7 @@ export default function Home() {
 
         <Container className="relative z-10 flex !max-w-6xl flex-col justify-center lg:min-h-[min(85vh,720px)] lg:py-16 xl:py-20">
           <div className="mx-auto w-full max-w-3xl py-10 text-center sm:py-12 lg:mx-0 lg:ml-auto lg:mr-0 lg:max-w-xl lg:py-16 lg:pl-4 lg:pr-0 lg:text-left xl:max-w-2xl xl:pl-8">
-            <div className="lg:rounded-2xl lg:border lg:border-white/10 lg:bg-[#0B1B3A]/40 lg:px-8 lg:py-10 lg:shadow-[0_12px_48px_-16px_rgba(0,0,0,0.55)]">
+            <div className="lg:rounded-2xl lg:border lg:border-white/10 lg:bg-[#0B1B3A]/70 lg:px-8 lg:py-10 lg:shadow-[0_12px_48px_-16px_rgba(0,0,0,0.55)]">
               <h1 className="mb-6 font-heading text-3xl font-bold leading-tight text-[var(--foreground)] [text-shadow:0_1px_2px_rgba(11,27,58,0.45),0_2px_16px_rgba(11,27,58,0.25)] md:text-4xl lg:text-5xl lg:[text-shadow:0_1px_2px_rgba(11,27,58,0.55),0_2px_28px_rgba(11,27,58,0.35)] xl:text-6xl">
                 Find clarity, peace, and purpose in Jesus Christ.
               </h1>
@@ -66,20 +66,31 @@ export default function Home() {
       <section className="py-12 md:py-16">
         <Container>
           <SectionHeader title="What Jesus Offers" className="mb-8 text-center" />
-          <div className="grid grid-cols-3 gap-4 md:gap-6">
-            {outcomeItems.map((item, index) => (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 md:gap-6">
+            {outcomeItems.map((item) => (
               <div
-                key={index}
-                className="relative bg-white/[0.04] border border-white/10 rounded-xl p-5 md:p-6"
+                key={item.title}
+                className="relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.04]"
               >
                 {/* Gold accent top border */}
-                <div className="absolute top-0 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent" />
-                <h3 className="text-[var(--foreground)] font-semibold mb-1 text-center text-lg">
-                  {item.title}
-                </h3>
-                <p className="text-[var(--foreground)]/60 text-center text-md">
-                  {item.description}
-                </p>
+                <div className="pointer-events-none absolute top-0 left-4 right-4 z-10 h-0.5 bg-gradient-to-r from-transparent via-[var(--accent)]/60 to-transparent" />
+                <div className="relative aspect-square w-full overflow-hidden border-b border-white/10">
+                  <Image
+                    src={item.image}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-5 md:p-6">
+                  <h3 className="mb-1 text-center text-lg font-semibold text-[var(--foreground)]">
+                    {item.title}
+                  </h3>
+                  <p className="text-center text-md text-[var(--foreground)]/60">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
