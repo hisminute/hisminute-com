@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     default: "His Minute",
     template: "His Minute | %s",
   },
-  description: "Find clarity, peace, and purpose through Jesus Christ.",
+  description: "Find clarity, peace, and purpose in Jesus Christ.",
   alternates: {
     canonical: "/",
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     title: "His Minute",
-    description: "Find clarity, peace, and purpose through Jesus Christ.",
+    description: "Find clarity, peace, and purpose in Jesus Christ.",
     images: [
       {
         url: "/hmlogo.png",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "His Minute",
-    description: "Find clarity, peace, and purpose through Jesus Christ.",
+    description: "Find clarity, peace, and purpose in Jesus Christ.",
     images: ["/hmlogo.png"],
   },
   icons: {
@@ -120,7 +120,7 @@ function Footer() {
     <footer className="w-full border-t border-white/10 mt-auto bg-[#00224B]">
       <Container className="py-12 md:py-16">
         <p className="text-center text-[var(--accent)] font-heading font-medium text-lg mb-4">
-          Find clarity, peace, and purpose through Jesus Christ.
+          Find clarity, peace, and purpose in Jesus Christ.
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm mb-6">
           <li>
