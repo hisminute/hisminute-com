@@ -74,7 +74,7 @@ export default function Prayer() {
               You are not alone.
             </h1>
             <p className="mx-auto mb-6 max-w-prose text-xl leading-relaxed text-[var(--foreground)]/80 md:mx-0 md:text-2xl">
-              Request prayer and we will pray for you.
+              We will pray with you.
             </p>
             <p className="text-md text-[var(--foreground)]/60 md:mb-0">
               We keep all prayer requests private and never share without permission.
