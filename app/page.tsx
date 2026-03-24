@@ -46,7 +46,7 @@ export default function Home() {
               </h1>
 
               <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-[var(--foreground)]/90 md:text-xl lg:mx-0 lg:mb-10 lg:max-w-lg lg:[text-shadow:0_1px_2px_rgba(11,27,58,0.45)]">
-                Real hope for real life, rooted in Scripture, and focused on Jesus.
+                Real hope for real life, rooted in scripture, and focused on Jesus.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
@@ -117,17 +117,32 @@ export default function Home() {
 
       {/* Support Ask Section - Will you help us share Jesus today? */}
       <section className="py-12 md:py-16 border-t border-white/10">
-        <Container>
-          <Card className="max-w-2xl mx-auto text-center">
-            <h2 className="text-xl md:text-2xl font-heading font-semibold text-[var(--foreground)] mb-4">
-              Will you help us share Jesus today?
-            </h2>
-            <p className="text-[var(--foreground)]/80 mb-6 leading-relaxed">
-              Your support helps us reach more people with the love of Jesus Christ.
-            </p>
-            <Button href="/support" variant="primary" className="mb-6">
-              Support His Minute
-            </Button>
+        <Container className="!max-w-6xl">
+          <Card className="mx-auto max-w-none p-6 text-center md:p-8 md:text-left lg:p-10">
+            <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-10 lg:gap-12">
+              <div>
+                <h2 className="mb-4 font-heading text-xl font-semibold text-[var(--foreground)] md:text-2xl">
+                  Will you help us share Jesus today?
+                </h2>
+                <p className="mb-6 leading-relaxed text-[var(--foreground)]/80">
+                  Your support helps us reach more people with the love of Jesus Christ.
+                </p>
+                <div className="flex justify-center md:justify-start">
+                  <Button href="/support" variant="primary">
+                    Support His Minute
+                  </Button>
+                </div>
+              </div>
+              <div className="relative aspect-[1376/768] w-full overflow-hidden rounded-xl border border-white/10">
+                <Image
+                  src="/support-100.png"
+                  alt=""
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 767px) 100vw, 50vw"
+                />
+              </div>
+            </div>
           </Card>
         </Container>
       </section>
