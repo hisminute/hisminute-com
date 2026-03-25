@@ -74,10 +74,7 @@ export default function Prayer() {
               You are not alone.
             </h1>
             <p className="mx-auto mb-6 max-w-prose text-xl leading-relaxed text-[var(--foreground)]/80 md:mx-0 md:text-2xl">
-              We will pray with you.
-            </p>
-            <p className="text-md text-[var(--foreground)]/60 md:mb-0">
-              We keep all prayer requests private and never share without permission.
+              Share your prayer request, and we will pray with you in faith and hope.
             </p>
           </div>
           <div className="relative aspect-[1376/768] w-full overflow-hidden rounded-xl border border-white/10">
@@ -139,6 +136,9 @@ export default function Prayer() {
               </div>
 
               <div>
+                <p className="text-md text-[var(--foreground)]/60 mb-4">
+                  All prayer requests are private and never shared.
+                </p>  
                 <label
                   htmlFor="request"
                   className="block text-sm font-medium text-[var(--foreground)]/80 mb-2"
@@ -268,7 +268,6 @@ export default function Prayer() {
           )}
         </Card>
       </section>
-
     </Container>
   );
 }

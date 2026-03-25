@@ -46,7 +46,7 @@ export default function Home() {
               </h1>
 
               <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-[var(--foreground)]/90 md:text-xl lg:mx-0 lg:mb-10 lg:max-w-lg lg:[text-shadow:0_1px_2px_rgba(11,27,58,0.45)]">
-                Real hope for real life, rooted in scripture, and focused on Jesus.
+                Real hope for real life, rooted in Scripture, and focused on Jesus.
               </p>
 
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
