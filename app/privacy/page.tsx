@@ -28,7 +28,7 @@ export default function Privacy() {
             <li className="flex items-start gap-3">
               <span className="text-[var(--accent)] text-lg">•</span>
               <span>
-                <strong className="text-[var(--foreground)]">Support:</strong> Payments are processed securely by Stripe. His Minute does not store your card details.
+                <strong className="text-[var(--foreground)]">Support:</strong> Payments are processed securely by Stripe. His Minute does not store payment information.
               </span>
             </li>
             <li className="flex items-start gap-3">
