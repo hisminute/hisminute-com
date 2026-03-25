@@ -84,11 +84,11 @@ export default function StartHere() {
             <SectionHeader title="A prayer to begin with Jesus" className="mb-8 text-center" centered />
             <Card className="border-l-4 border-l-[var(--accent)]">
               <p className="text-[var(--foreground)]/90 italic text-2xl leading-12 whitespace-pre-line">
-              {/* The His Minute Prayer: Jesus, I need You. I trust in You. Forgive me, change my heart, and lead my life. Amen  */}
+              {/* The His Minute Prayer: Jesus, I need You. I trust in You. Forgive me, change my heart, lead my life. Amen  */}
                 Jesus, {"\n"}
                 I need You. 
                 I trust in You. {"\n"}
-                Forgive me, change my heart, and lead my life. {"\n"}
+                Forgive me, change my heart, lead my life. {"\n"}
                 Amen {"\n"}
               </p>
             </Card>
