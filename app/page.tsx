@@ -68,7 +68,11 @@ export default function Home() {
       {/* Outcomes Section — individual cards */}
       <section className="py-12 md:py-16">
         <Container>
-          <SectionHeader title="What Jesus Offers" className="mb-8 text-center" />
+          <SectionHeader
+            title="What Jesus Offers"
+            className="mb-8 text-center"
+            titleClassName="text-3xl md:text-4xl lg:text-5xl"
+          />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 md:gap-6">
             {outcomeItems.map((item) => (
               <div

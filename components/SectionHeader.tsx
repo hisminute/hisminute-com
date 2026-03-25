@@ -3,6 +3,8 @@ interface SectionHeaderProps {
   subtitle?: string;
   className?: string;
   centered?: boolean;
+  /** Override default heading size (`text-2xl md:text-3xl`). */
+  titleClassName?: string;
 }
 
 export function SectionHeader({
@@ -10,10 +12,16 @@ export function SectionHeader({
   subtitle,
   className = "",
   centered = false,
+  titleClassName,
 }: SectionHeaderProps) {
   return (
     <div className={centered ? "text-center " + className : className}>
-      <h2 className="text-2xl md:text-3xl font-heading font-semibold text-[var(--foreground)] mb-3">
+      <h2
+        className={
+          "font-heading font-semibold text-[var(--foreground)] mb-3 " +
+          (titleClassName ?? "text-2xl md:text-3xl")
+        }
+      >
         {title}
       </h2>
       {subtitle && (
