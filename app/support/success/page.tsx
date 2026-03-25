@@ -10,7 +10,7 @@ export default function SupportSuccess() {
           Thank you.
         </h1>
         <p className="text-lg text-[var(--foreground)]/80 mb-8 max-w-md mx-auto">
-          Your support helps us reach more people with real hope in Jesus.
+          Your support helps us reach more people with real hope in Jesus Christ.
         </p>
         <Button href="/support" variant="primary">
           Back to Support

@@ -104,7 +104,7 @@ export default function Home() {
       {SHOW_HOMEPAGE_LATEST_VIDEOS && (
         <section id="latest-videos" className="py-12 md:py-16 bg-[#0a1628]">
           <Container>
-            <SectionHeader title="Latest videos" className="mb-8 text-center" />
+            <SectionHeader title="Latest Videos" className="mb-8 text-center" />
             <div className="space-y-4 mb-6">
               {videos.map((video, index) => (
                 <Card key={index} className="p-5 bg-white/[0.02]">

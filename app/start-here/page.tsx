@@ -7,7 +7,7 @@ import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Start — His Minute",
-  description: "This is your time. Real hope is found in Jesus.",
+  description: "This is your time. Real hope is found in Jesus Christ.",
 };
 
 const outcomeItems = [
@@ -32,7 +32,7 @@ export default function StartHere() {
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row md:justify-start">
                 <Button href="#prayer" variant="primary">
-                  Pray now
+                  Pray Now
                 </Button>
                 <Button href="/prayer" variant="secondary">
                   Request Prayer
@@ -64,11 +64,11 @@ export default function StartHere() {
                 And even if life feels broken right now, God has not given up on you.
               </p>
               <p>
-                Jesus, the son of God, came to bring us back to God. He lived with perfect love, gave His life for us, and rose again.
+                Jesus, the Son of God, came to bring us back to God. He lived with perfect love, gave His life for us, and rose again.
               </p>
               <p>
-                Because of Jesus, we don’t have to earn our way to God. Because of Him, our salvation is a gift, received by faith. 
-              </p>  
+                Because of Jesus, we don’t have to earn our way to God. Because of Him, our salvation is a gift, received by faith.
+              </p>
               <p>
                 You can begin with Jesus today, just as you are, and receive His grace.
               </p>
@@ -106,7 +106,7 @@ export default function StartHere() {
                 Request Prayer
               </Button>              
               <Button href="/#latest-videos" variant="secondary">
-                Watch the latest
+                Watch the Latest
               </Button>
               <Button href="/support" variant="secondary">
                 Support His Minute

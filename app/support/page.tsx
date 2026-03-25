@@ -178,7 +178,7 @@ export default function Support() {
 
       {/* 4) What Your Support Helps Fund */}
       <section className="mb-12 md:mb-16">
-        <SectionHeader title="What your support helps fund" className="mb-6" />
+        <SectionHeader title="What Your Support Helps Fund" className="mb-6" />
         <Card>
           <ul className="space-y-4 text-[var(--foreground)]/80 leading-relaxed">
             <li className="flex items-start gap-3">

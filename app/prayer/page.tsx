@@ -102,7 +102,7 @@ export default function Prayer() {
                 May God strengthen you and steady your heart today.
               </p>
               <p className="text-[var(--foreground)]/90 italic leading-relaxed">
-                "The Lord is near to the brokenhearted and saves the crushed in spirit." (Psalm 34:18, ESV)
+                “The Lord is near to the brokenhearted and saves the crushed in spirit.” (Psalm 34:18, ESV)
               </p>
               {refCode && (
                 <p className="text-[var(--foreground)]/60 text-sm pt-2">
@@ -262,7 +262,7 @@ export default function Prayer() {
               )}
 
               <Button type="submit" variant="primary" className={isLoading ? "opacity-70 cursor-not-allowed" : ""}>
-                {isLoading ? "Sending..." : "Send request"}
+                {isLoading ? "Sending…" : "Send Request"}
               </Button>
             </form>
           )}
