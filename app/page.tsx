@@ -6,6 +6,9 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/Button";
 import { videos } from "@/content/videos";
 
+/** Set to `true` to restore the Latest videos block on the homepage. */
+const SHOW_HOMEPAGE_LATEST_VIDEOS = true;
+
 export const metadata: Metadata = {
   title: "His Minute",
   description: "Find clarity, peace, and purpose in Jesus Christ.",
@@ -97,23 +100,25 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Latest Videos Section — with distinct background panel */}
-      <section id="latest-videos" className="py-12 md:py-16 bg-[#0a1628]">
-        <Container>
-          <SectionHeader title="Latest videos" className="mb-8 text-center" />
-          <div className="space-y-4 mb-6">
-            {videos.map((video, index) => (
-              <Card key={index} className="p-5 bg-white/[0.02]">
-                <p className="text-[var(--foreground)] font-medium">{video.title}</p>
-                <p className="text-[var(--foreground)]/50 text-sm">{video.platform}</p>
-                {video.url === null && (
-                  <p className="text-[var(--accent)] text-sm mt-1">Coming soon</p>
-                )}
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Latest videos — render when SHOW_HOMEPAGE_LATEST_VIDEOS is true */}
+      {SHOW_HOMEPAGE_LATEST_VIDEOS && (
+        <section id="latest-videos" className="py-12 md:py-16 bg-[#0a1628]">
+          <Container>
+            <SectionHeader title="Latest videos" className="mb-8 text-center" />
+            <div className="space-y-4 mb-6">
+              {videos.map((video, index) => (
+                <Card key={index} className="p-5 bg-white/[0.02]">
+                  <p className="text-[var(--foreground)] font-medium">{video.title}</p>
+                  <p className="text-[var(--foreground)]/50 text-sm">{video.platform}</p>
+                  {video.url === null && (
+                    <p className="text-[var(--accent)] text-sm mt-1">Coming soon</p>
+                  )}
+                </Card>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* Support Ask Section - Will you help us share Jesus today? */}
       <section className="py-12 md:py-16 border-t border-white/10">
