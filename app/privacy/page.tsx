@@ -22,7 +22,7 @@ export default function Privacy() {
             <li className="flex items-start gap-3">
               <span className="text-[var(--accent)] text-lg">•</span>
               <span>
-                <strong className="text-[var(--foreground)]">Prayer requests:</strong> If you submit a prayer request, we store the information you choose to share so we can pray for you and follow up only if you ask us to.
+                <strong className="text-[var(--foreground)]">Prayer requests:</strong> If you submit a prayer request, we store the information you choose to share so we can pray for you and then delete it. We never share prayer requests.
               </span>
             </li>
             <li className="flex items-start gap-3">
